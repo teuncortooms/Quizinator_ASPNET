@@ -40,7 +40,7 @@ namespace AnotherMVCProject.Controllers
                 "translation_desc" => idioms.OrderByDescending(x => x.Translation),
                 "unit_asc" => idioms.OrderBy(x => x.Unit),
                 "unit_desc" => idioms.OrderByDescending(x => x.Unit),
-                _ => idioms.OrderBy(x => x.IdiomId),
+                _ => idioms,
             };
             return View(idioms);
         }

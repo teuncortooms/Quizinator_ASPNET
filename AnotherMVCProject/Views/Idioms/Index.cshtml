@@ -7,52 +7,55 @@
     @Html.ActionLink("Import Idioms", "Import")
 </p>
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <a asp-action="Index" asp-route-sortOrder="@ViewData["WordSortParm"]">
-                @Html.DisplayNameFor(model => model.Word)
-            </a>
-        </div>
-        <div class="col-md">
-            <a asp-action="Index" asp-route-sortOrder="@ViewData["SentenceSortParm"]">
-                @Html.DisplayNameFor(model => model.Sentence)
-            </a>
-        </div>
-        <div class="col-md-2">
-            <a asp-action="Index" asp-route-sortOrder="@ViewData["TranslationSortParm"]">
-                @Html.DisplayNameFor(model => model.Translation)
-            </a>
-        </div>
-        <div class="col-md-2">
-            <a asp-action="Index" asp-route-sortOrder="@ViewData["UnitSortParm"]">
-                @Html.DisplayNameFor(model => model.Unit)
-            </a>
-        </div>
-        <div class="col-md-2">
-        </div>
-    </div>
-
-
-    @foreach (Idiom idiom in Model)
-    {
-        <div class="row">
-            <div class="col-md-2">
-                @Html.DisplayFor(modelItem => idiom.Word)
-            </div>
-            <div class="col-md">
-                @Html.DisplayFor(modelItem => idiom.Sentence)
-            </div>
-            <div class="col-md-2">
-                @Html.DisplayFor(modelItem => idiom.Translation)
-            </div>
-            <div class="col-md-2">
-                @Html.DisplayFor(modelItem => idiom.Unit)
-            </div>
-            <div class="col-md-2">
-                @Html.ActionLink("Edit", "Edit", new { id = idiom.IdiomId }) |
-                @Html.ActionLink("Details", "Details", new { id = idiom.IdiomId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = idiom.IdiomId })
-            </div>
-        </div>
-    }
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr class="row">
+                <th class="col-sm-2">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["WordSortParm"]">
+                        @Html.DisplayNameFor(model => model.Word)
+                    </a>
+                </th>
+                <th class="col-sm-5">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["SentenceSortParm"]">
+                        @Html.DisplayNameFor(model => model.Sentence)
+                    </a>
+                </th>
+                <th class="col-sm-2">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TranslationSortParm"]">
+                        @Html.DisplayNameFor(model => model.Translation)
+                    </a>
+                </th>
+                <th class="col-sm-1">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["UnitSortParm"]">
+                        @Html.DisplayNameFor(model => model.Unit)
+                    </a>
+                </th>
+                <th class="col-sm-2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Idiom idiom in Model)
+            {
+                <tr class="row">
+                    <td class="col-sm-2">
+                        @Html.DisplayFor(modelItem => idiom.Word)
+                        </td>
+                    <td class="col-sm-5">
+                        @Html.DisplayFor(modelItem => idiom.Sentence)
+                    </td>
+                    <td class="col-sm-2">
+                        @Html.DisplayFor(modelItem => idiom.Translation)
+                    </td>
+                    <td class="col-sm-1">
+                        @Html.DisplayFor(modelItem => idiom.Unit)
+                    </td>
+                    <td class="col-sm-2">
+                        @Html.ActionLink("Edit", "Edit", new { id = idiom.IdiomId }) |
+                        @Html.ActionLink("Details", "Details", new { id = idiom.IdiomId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = idiom.IdiomId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
