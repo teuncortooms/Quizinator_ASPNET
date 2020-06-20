@@ -1,35 +1,5 @@
 [
   {
-    "IdiomId": "ecaecaf6-7348-4166-b2de-4ea1aa7b225e",
-    "Word": "nice adj",
-    "exampleSentence": "If the weather isn\u2019t going to be nice, let\u2019s stay in.",
-    "Translation": "mooi, lekker",
-    "Unit": "Unit 3",
-    "Ratings": [
-      0,
-      5,
-      1
-    ]
-  },
-  {
-    "IdiomId": "41c40e58-c02a-474f-ae3e-36364c342cc6",
-    "Word": "spell v",
-    "exampleSentence": "Do you spell \u2018grey\u2019 with an \u2018a\u2019 or an \u2018e\u2019?",
-    "Translation": "spellen, schrijven",
-    "Unit": "Unit 3",
-    "Ratings": [
-      2
-    ]
-  },
-  {
-    "IdiomId": "f29163b0-78f7-46bf-8b17-48958cf37f97",
-    "Word": "student n",
-    "exampleSentence": "Say hello to the other students in the class.",
-    "Translation": "student",
-    "Unit": "Unit 3",
-    "Ratings": null
-  },
-  {
     "IdiomId": "33224159-4069-467d-9aea-17d2fd3be92e",
     "Word": "surname n",
     "exampleSentence": "What is your surname?",
@@ -38,7 +8,12 @@
     "Ratings": [
       5,
       0,
-      0
+      0,
+      2,
+      1,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -47,15 +22,9 @@
     "exampleSentence": "What is your name?",
     "Translation": "wat",
     "Unit": "Unit 3",
-    "Ratings": null
-  },
-  {
-    "IdiomId": "a44cd756-d038-4b61-b5ee-b1cd3cc62947",
-    "Word": "where adv",
-    "exampleSentence": "Where are you from?",
-    "Translation": "waar",
-    "Unit": "Unit 3",
-    "Ratings": null
+    "Ratings": [
+      3
+    ]
   },
   {
     "IdiomId": "c3f87f13-e1b2-44dc-848a-97078f3e74eb",
@@ -63,7 +32,9 @@
     "exampleSentence": "Excuse me, sir, could you help me find my brain?",
     "Translation": "beleefdsheidsuitdrukking1",
     "Unit": "Unit 3",
-    "Ratings": null
+    "Ratings": [
+      4
+    ]
   },
   {
     "IdiomId": "0f82eead-d04d-4d1b-af26-c0da66d0b3b2",
@@ -206,11 +177,9 @@
     "IdiomId": "7fd3aa01-0f7d-4295-8991-07d7dd6a5944",
     "Word": "cinema",
     "exampleSentence": "I really want to see that movie. Did you buy tickets for the cinema tonight?",
-    "Translation": "bioscoop",
+    "Translation": "bioscoop1",
     "Unit": "Unit 3",
-    "Ratings": [
-      3
-    ]
+    "Ratings": null
   },
   {
     "IdiomId": "243ccf59-1ede-4142-9669-4cdbe2b3edf4",
@@ -643,12 +612,10 @@
   {
     "IdiomId": "101da6cb-9d9f-415f-a6dd-ab107b2ae084",
     "Word": "jaja",
-    "exampleSentence": "jajajaja",
+    "exampleSentence": "jajajajaafsfda",
     "Translation": "yesyes",
     "Unit": "Unit 3",
-    "Ratings": [
-      5
-    ]
+    "Ratings": null
   },
   {
     "IdiomId": "1e7eb0a7-906f-4a62-a187-8f68dc221ed8",
@@ -680,5 +647,29 @@
     "Ratings": [
       4
     ]
+  },
+  {
+    "IdiomId": "ac61af68-f157-4c5b-8301-a86ce48e7c6e",
+    "Word": "test1",
+    "exampleSentence": "test12",
+    "Translation": "test3",
+    "Unit": "test5",
+    "Ratings": null
+  },
+  {
+    "IdiomId": "5718c8bc-2a4d-4945-8ba0-fc67e043fc58",
+    "Word": "asdfasf4",
+    "exampleSentence": "asdfasdfsdf",
+    "Translation": "asf",
+    "Unit": "asdfas",
+    "Ratings": null
+  },
+  {
+    "IdiomId": "fe5464a9-b05a-4bbd-9d0e-5578d73c10c1",
+    "Word": "fasdfa",
+    "exampleSentence": "asdfasdf",
+    "Translation": "asdf",
+    "Unit": "234",
+    "Ratings": null
   }
 ]

@@ -43,15 +43,13 @@
     // set default votes info
     int voteCount = 0;
     int currentRating = 0;
-    string voteLabel = "Be the first to vote!";
+    string voteLabel = "Be the first to vote! ";
 
     updateVotesInfo();
 }
 
 <div>
     <span>@voteLabel</span>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     @{
         const int numberOfStars = 5;
@@ -61,17 +59,17 @@
             if (currentStar <= currentRating)
             {
                 <text>
-                    <span class="fa fa-star checked"
-                          onclick="location.href='@Url.Action("SubmitRating", new { id = Model.IdiomId, rating = currentStar })'">
-                    </span>
+                    <a class="fa fa-star checked"
+                          href='@Url.Action("SubmitRating", new { id = Model.IdiomId, rating = currentStar })'>
+                    </a>
                 </text>
             }
             else
             {
                 <text>
-                    <span class="fa fa-star"
-                          onclick="location.href='@Url.Action("SubmitRating", new { id = Model.IdiomId, rating = currentStar })'">
-                    </span>
+                    <a class="fa fa-star"
+                          href='@Url.Action("SubmitRating", new { id = Model.IdiomId, rating = currentStar })'>
+                    </a>
                 </text>
             }
         }

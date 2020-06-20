@@ -22,14 +22,24 @@ namespace AnotherMVCProject.Controllers
             this.idiomsConverter = idiomsConverter;
         }
 
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewData["WordSortParm"] = sortOrder == "word_asc" ? "word_desc" : "word_asc";
             ViewData["SentenceSortParm"] = sortOrder == "sentence_asc" ? "sentence_desc" : "sentence_asc";
             ViewData["TranslationSortParm"] = sortOrder == "translation_asc" ? "translation_desc" : "translation_asc";
             ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
+            ViewData["CurrentFilter"] = searchString;
 
             IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                idioms = idioms.Where(x => x.Word.Contains(searchString)
+                                        || x.Sentence.Contains(searchString)
+                                        || x.Translation.Contains(searchString)
+                                        || x.Unit.Contains(searchString));
+            }
+
             idioms = sortOrder switch
             {
                 "word_asc" => idioms.OrderBy(x => x.Word),
@@ -100,6 +110,7 @@ namespace AnotherMVCProject.Controllers
             }
             catch
             {
+                // report error
                 return View();
             }
         }
@@ -112,12 +123,11 @@ namespace AnotherMVCProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                idiomsService.DeleteIdiom(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

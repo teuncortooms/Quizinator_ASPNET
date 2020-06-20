@@ -1,11 +1,27 @@
 ﻿@model IEnumerable<AnotherMVCProject.Models.Idiom>
 
-<h1>IdiomsList</h1>
+<h1>Idioms</h1>
 
-<p>
-    @Html.ActionLink("Add Idiom", "Create") |
-    @Html.ActionLink("Import Idioms", "Import")
-</p>
+<div>
+
+        <div class="float-left">
+            <a asp-action="Create" class="btn btn-primary">Add Idiom</a>
+            <a asp-action="Import" class="btn btn-light">Import Idioms</a>
+        </div>
+        <div class="float-right">
+            <form asp-action="Index" method="get">
+                <p>
+                    <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                    @if (@ViewData["currentFilter"] != null)
+                    {
+                        <a asp-action="Index">x</a>
+                    }
+                    <input type="submit" value="Search" class="btn btn-light" />
+                </p>
+            </form>
+        </div>
+</div>
+
 <div class="container">
     <table class="table table-hover">
         <thead class="thead-light">
@@ -15,7 +31,7 @@
                         @Html.DisplayNameFor(model => model.Word)
                     </a>
                 </th>
-                <th class="col-sm-5">
+                <th class="col-sm-6">
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["SentenceSortParm"]">
                         @Html.DisplayNameFor(model => model.Sentence)
                     </a>
@@ -30,7 +46,7 @@
                         @Html.DisplayNameFor(model => model.Unit)
                     </a>
                 </th>
-                <th class="col-sm-2"></th>
+                <th class="col-sm-1"></th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +55,8 @@
                 <tr class="row">
                     <td class="col-sm-2">
                         @Html.DisplayFor(modelItem => idiom.Word)
-                        </td>
-                    <td class="col-sm-5">
+                    </td>
+                    <td class="col-sm-6">
                         @Html.DisplayFor(modelItem => idiom.Sentence)
                     </td>
                     <td class="col-sm-2">
@@ -49,10 +65,10 @@
                     <td class="col-sm-1">
                         @Html.DisplayFor(modelItem => idiom.Unit)
                     </td>
-                    <td class="col-sm-2">
-                        @Html.ActionLink("Edit", "Edit", new { id = idiom.IdiomId }) |
-                        @Html.ActionLink("Details", "Details", new { id = idiom.IdiomId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = idiom.IdiomId })
+                    <td class="col-sm-1">
+                        <a asp-action="Edit" asp-route-id=@idiom.IdiomId><i class="fas fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id=@idiom.IdiomId><i class="fas fa-info-circle"></i></a>
+                        <a asp-action="Delete" asp-route-id=@idiom.IdiomId><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             }

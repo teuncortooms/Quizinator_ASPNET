@@ -88,6 +88,11 @@ namespace AnotherMVCProject.Services
             JsonSerializer.Serialize(writer, idioms);
         }
 
-
+        internal void DeleteIdiom(Guid id)
+        {
+            List<Idiom> idioms = GetIdioms().ToList();
+            idioms.RemoveAll(x => x.IdiomId == id);
+            UpdateSource(idioms);
+        }
     }
 }
