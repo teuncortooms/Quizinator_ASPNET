@@ -14,7 +14,6 @@ namespace AnotherMVCProject.Controllers
     {
         private readonly IdiomsJsonFileService idiomsService;
         private readonly XToIdiomConverter idiomsConverter;
-        private object _context;
 
         //ctor
         public IdiomsController(IdiomsJsonFileService idiomsService, XToIdiomConverter idiomsConverter)
@@ -28,39 +27,21 @@ namespace AnotherMVCProject.Controllers
             ViewData["WordSortParm"] = sortOrder == "word_asc" ? "word_desc" : "word_asc";
             ViewData["SentenceSortParm"] = sortOrder == "sentence_asc" ? "sentence_desc" : "sentence_asc";
             ViewData["TranslationSortParm"] = sortOrder == "translation_asc" ? "translation_desc" : "translation_asc";
-            ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_desc";
+            ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
 
             IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
-            switch (sortOrder)
+            idioms = sortOrder switch
             {
-                case "word_asc":
-                    idioms = idioms.OrderBy(x => x.Word);
-                    break;
-                case "word_desc":
-                    idioms = idioms.OrderByDescending(x => x.Word);
-                    break;
-                case "sentence_asc":
-                    idioms = idioms.OrderBy(x => x.Sentence);
-                    break;
-                case "sentence_desc":
-                    idioms = idioms.OrderByDescending(x => x.Sentence);
-                    break;
-                case "translation_asc":
-                    idioms = idioms.OrderBy(x => x.Translation);
-                    break;
-                case "translation_desc":
-                    idioms = idioms.OrderByDescending(x => x.Translation);
-                    break;
-                case "unit_asc":
-                    idioms = idioms.OrderBy(x => x.Unit);
-                    break;
-                case "unit_desc":
-                    idioms = idioms.OrderByDescending(x => x.Unit);
-                    break;
-                default:
-                    idioms = idioms.OrderBy(x => x.IdiomId);
-                    break;
-            }
+                "word_asc" => idioms.OrderBy(x => x.Word),
+                "word_desc" => idioms.OrderByDescending(x => x.Word),
+                "sentence_asc" => idioms.OrderBy(x => x.Sentence),
+                "sentence_desc" => idioms.OrderByDescending(x => x.Sentence),
+                "translation_asc" => idioms.OrderBy(x => x.Translation),
+                "translation_desc" => idioms.OrderByDescending(x => x.Translation),
+                "unit_asc" => idioms.OrderBy(x => x.Unit),
+                "unit_desc" => idioms.OrderByDescending(x => x.Unit),
+                _ => idioms.OrderBy(x => x.IdiomId),
+            };
             return View(idioms);
         }
 

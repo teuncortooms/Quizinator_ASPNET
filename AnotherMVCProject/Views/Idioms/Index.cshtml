@@ -1,8 +1,4 @@
-﻿@model AnotherMVCProject.Models.IdiomsListViewModel
-
-@{
-    ViewData["Title"] = "IdiomsList";
-}
+﻿@model IEnumerable<AnotherMVCProject.Models.Idiom>
 
 <h1>IdiomsList</h1>
 
@@ -13,45 +9,50 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            @Html.DisplayNameFor(model => model.Idioms.First().Word)
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["WordSortParm"]">
+                @Html.DisplayNameFor(model => model.Word)
+            </a>
         </div>
         <div class="col-md">
-            @Html.DisplayNameFor(model => model.Idioms.First().Sentence)
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SentenceSortParm"]">
+                @Html.DisplayNameFor(model => model.Sentence)
+            </a>
         </div>
         <div class="col-md-2">
-            @Html.DisplayNameFor(model => model.Idioms.First().Translation)
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["TranslationSortParm"]">
+                @Html.DisplayNameFor(model => model.Translation)
+            </a>
         </div>
         <div class="col-md-2">
-            @Html.DisplayNameFor(model => model.Idioms.First().Unit)
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["UnitSortParm"]">
+                @Html.DisplayNameFor(model => model.Unit)
+            </a>
         </div>
         <div class="col-md-2">
         </div>
     </div>
 
 
-    @foreach (var item in Model.Idioms)
+    @foreach (Idiom idiom in Model)
     {
-<div class="row">
-    @*<div class="col-md-2">
-            @Html.DisplayFor(modelItem => item.IdiomId)
-        </div>*@
-    <div class="col-md-2">
-        @Html.DisplayFor(modelItem => item.Word)
-    </div>
-    <div class="col-md">
-        @Html.DisplayFor(modelItem => item.Sentence)
-    </div>
-    <div class="col-md-2">
-        @Html.DisplayFor(modelItem => item.Translation)
-    </div>
-    <div class="col-md-2">
-        @Html.DisplayFor(modelItem => item.Unit)
-    </div>
-    <div class="col-md-2">
-        @Html.ActionLink("Edit", "Edit", new { id = item.IdiomId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.IdiomId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.IdiomId })
-    </div>
-</div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => idiom.Word)
+            </div>
+            <div class="col-md">
+                @Html.DisplayFor(modelItem => idiom.Sentence)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => idiom.Translation)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => idiom.Unit)
+            </div>
+            <div class="col-md-2">
+                @Html.ActionLink("Edit", "Edit", new { id = idiom.IdiomId }) |
+                @Html.ActionLink("Details", "Details", new { id = idiom.IdiomId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = idiom.IdiomId })
+            </div>
+        </div>
     }
 </div>
