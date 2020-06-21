@@ -1,8 +1,8 @@
-using AnotherMVCProject.Controllers;
-using AnotherMVCProject.Services;
+using Quizinator.Controllers;
+using Quizinator.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AnotherMVCProjectTests
+namespace QuizinatorTests
 {
     [TestClass]
     public class IdiomsControllerTests

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AnotherMVCProject.Models;
+using Quizinator.Models;
 
-namespace AnotherMVCProject.Controllers
+namespace Quizinator.Controllers
 {
     public class HomeController : Controller
     {

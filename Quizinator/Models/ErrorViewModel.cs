@@ -1,6 +1,6 @@
 using System;
 
-namespace AnotherMVCProject.Models
+namespace Quizinator.Models
 {
     public class ErrorViewModel
     {

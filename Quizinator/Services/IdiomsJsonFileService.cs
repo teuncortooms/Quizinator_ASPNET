@@ -1,4 +1,4 @@
-﻿using AnotherMVCProject.Models;
+﻿using Quizinator.Models;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace AnotherMVCProject.Services
+namespace Quizinator.Services
 {
     public class IdiomsJsonFileService : IIdiomsDatabaseService
     {

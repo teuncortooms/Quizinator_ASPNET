@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using AnotherMVCProject.Models;
-using AnotherMVCProject.Services;
+using Quizinator.Models;
+using Quizinator.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AnotherMVCProject.Controllers
+namespace Quizinator.Controllers
 {
     public class IdiomsController : Controller
     {
