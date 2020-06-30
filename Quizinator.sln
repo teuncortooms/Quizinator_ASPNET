@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quizinator", "Quizinator\Quizinator.csproj", "{AE0B28B6-34E1-4912-A784-203D514AF348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorUI", "Quizinator\QuizinatorUI.csproj", "{AE0B28B6-34E1-4912-A784-203D514AF348}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorTests", "QuizinatorTests\QuizinatorTests.csproj", "{A439ABF3-22B0-4578-8595-F2C7F348A6E0}"
 EndProject

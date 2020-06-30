@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Quizinator\Quizinator.csproj" />
+    <ProjectReference Include="..\QuizinatorUI\QuizinatorUI.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
-using Quizinator.Controllers;
-using Quizinator.Services;
+using QuizinatorUI.Controllers;
+using QuizinatorUI.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace QuizinatorTests
