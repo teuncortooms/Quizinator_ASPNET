@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace QuizinatorUI.Models
+namespace QuizinatorCore.Entities
 {
     public class Idiom
     {

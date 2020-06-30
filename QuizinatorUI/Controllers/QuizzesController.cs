@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using QuizinatorUI.Models;
-using QuizinatorUI.Models.Exercises;
-using QuizinatorUI.Services;
+using QuizinatorCore.Entities;
+using QuizinatorCore.Entities.Exercises;
+using QuizinatorCore.Services;
+using QuizinatorCore.Interfaces;
+using QuizinatorUI.ViewModels;
 
 namespace QuizinatorUI.Controllers
 {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QuizinatorUI.Models
+namespace QuizinatorUI.ViewModels
 {
     public class ImportFileViewModel
     {

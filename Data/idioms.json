@@ -573,7 +573,9 @@
     "exampleSentence": "His book is a delightful compendium of important questions.",
     "Translation": "compendium",
     "Unit": "Unit 3",
-    "Ratings": null
+    "Ratings": [
+      2
+    ]
   },
   {
     "IdiomId": "035f6d24-08f3-47f8-9e84-7e00ab59b164",
@@ -658,11 +660,11 @@
     "Ratings": null
   },
   {
-    "IdiomId": "fe5464a9-b05a-4bbd-9d0e-5578d73c10c1",
-    "Word": "fasdfa",
-    "exampleSentence": "asdfasdf",
+    "IdiomId": "93c141df-7d8c-4c1a-8266-96c86b236f03",
+    "Word": "tasdfasdf",
+    "exampleSentence": "asdfasdfasdfasdfasdf",
     "Translation": "asdf",
-    "Unit": "234",
+    "Unit": "24",
     "Ratings": null
   }
 ]

@@ -3,11 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorUI", "Quizinator\QuizinatorUI.csproj", "{AE0B28B6-34E1-4912-A784-203D514AF348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorUI", "QuizinatorUI\QuizinatorUI.csproj", "{AE0B28B6-34E1-4912-A784-203D514AF348}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorTests", "QuizinatorTests\QuizinatorTests.csproj", "{A439ABF3-22B0-4578-8595-F2C7F348A6E0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorCore", "QuizinatorCore\QuizinatorCore.csproj", "{0BB2855D-E754-4DCA-9CC7-2A6934A57358}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorInfrastructure", "QuizinatorInfrastructure\QuizinatorInfrastructure.csproj", "{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App_Data", "App_Data", "{1F296D31-30E4-4333-9DA9-5A2EF78886D1}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Data", "Data\Data.shproj", "{2BF5AFF7-4E52-4CC3-9719-E6133CD36B24}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Data\Data.projitems*{2bf5aff7-4e52-4cc3-9719-e6133cd36b24}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -21,6 +32,14 @@ Global
 		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

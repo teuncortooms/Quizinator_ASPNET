@@ -1,5 +1,4 @@
-﻿using QuizinatorUI.Models;
-using Microsoft.AspNetCore.Hosting;
+﻿using QuizinatorCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,23 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using QuizinatorCore.Services;
+using QuizinatorCore.Interfaces;
 
-namespace QuizinatorUI.Services
+namespace QuizinatorInfrastructure.Services
 {
     public class IdiomsJsonFileService : IIdiomsDatabaseService
     {
-        public IWebHostEnvironment WebHostEnvironment { get; }
         public FileConverter FileConverter { get; }
 
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "idioms.json"); }
+            get { return @"../Data/idioms.json"; }
+            //Path. Path.Combine(WebHostEnvironment.WebRootPath, "data", "idioms.json"); }
         }
 
         //ctor
-        public IdiomsJsonFileService(IWebHostEnvironment webHostEnvironment, FileConverter fileConverter)
+        public IdiomsJsonFileService(FileConverter fileConverter)
         {
-            this.WebHostEnvironment = webHostEnvironment;
             this.FileConverter = fileConverter;
         }
 

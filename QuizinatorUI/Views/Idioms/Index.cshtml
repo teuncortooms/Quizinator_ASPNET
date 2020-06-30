@@ -1,25 +1,26 @@
-﻿@model IEnumerable<QuizinatorUI.Models.Idiom>
+﻿@using QuizinatorCore.Entities
+@model IEnumerable<Idiom>
 
 <h1>Idioms</h1>
 
 <div>
 
-        <div class="float-left">
-            <a asp-action="Create" class="btn btn-primary">Add Idiom</a>
-            <a asp-action="Import" class="btn btn-light">Import Idioms</a>
-        </div>
-        <div class="float-right">
-            <form asp-action="Index" method="get">
-                <p>
-                    <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-                    @if (@ViewData["currentFilter"] != null)
-                    {
-                        <a asp-action="Index">x</a>
-                    }
-                    <input type="submit" value="Search" class="btn btn-light" />
-                </p>
-            </form>
-        </div>
+    <div class="float-left">
+        <a asp-action="Create" class="btn btn-primary">Add Idiom</a>
+        <a asp-action="Import" class="btn btn-light">Import Idioms</a>
+    </div>
+    <div class="float-right">
+        <form asp-action="Index" method="get">
+            <p>
+                <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                @if (@ViewData["currentFilter"] != null)
+                {
+                    <a asp-action="Index">x</a>
+                }
+                <input type="submit" value="Search" class="btn btn-light" />
+            </p>
+        </form>
+    </div>
 </div>
 
 <div class="container">

@@ -1,8 +1,8 @@
-﻿using QuizinatorUI.Models;
+﻿using QuizinatorCore.Entities;
 using System;
 using System.Collections.Generic;
 
-namespace QuizinatorUI
+namespace QuizinatorCore.Interfaces
 {
     public interface IQuizzesDatabaseService
     {

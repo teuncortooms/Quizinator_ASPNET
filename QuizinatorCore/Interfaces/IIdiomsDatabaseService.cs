@@ -1,10 +1,10 @@
-﻿using QuizinatorUI.Models;
+﻿using QuizinatorCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QuizinatorUI.Services
+namespace QuizinatorCore.Interfaces
 {
     public interface IIdiomsDatabaseService
     {

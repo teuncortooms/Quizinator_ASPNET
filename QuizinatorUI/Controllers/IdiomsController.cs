@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using QuizinatorUI.Models;
-using QuizinatorUI.Services;
+using QuizinatorCore.Entities;
+using QuizinatorUI.ViewModels;
+using QuizinatorCore.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using QuizinatorCore.Services;
 
 namespace QuizinatorUI.Controllers
 {
@@ -30,7 +32,7 @@ namespace QuizinatorUI.Controllers
             ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
             ViewData["CurrentFilter"] = searchString;
 
-            IEnumerable<Models.Idiom> idioms = idiomsService.GetIdioms();
+            IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -55,14 +57,14 @@ namespace QuizinatorUI.Controllers
             return View(idioms);
         }
 
-        public IEnumerable<Models.Idiom> Json()
+        public IEnumerable<Idiom> Json()
         {
             return idiomsService.GetIdioms();
         }
 
         public ActionResult Details(Guid id)
         {
-            Models.Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
             return View(idiom);
         }
 
@@ -80,7 +82,7 @@ namespace QuizinatorUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Idiom newIdiom)
+        public ActionResult Create(Idiom newIdiom)
         {
             if (ModelState.IsValid)
             {
@@ -95,13 +97,13 @@ namespace QuizinatorUI.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            Models.Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
             return View(idiom);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id, Models.Idiom updatedIdiom)
+        public ActionResult Edit(Guid id, Idiom updatedIdiom)
         {
             try
             {
@@ -117,7 +119,7 @@ namespace QuizinatorUI.Controllers
 
         public ActionResult Delete(Guid id)
         {
-            Models.Idiom model = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom model = idiomsService.GetIdioms().First(x => x.IdiomId == id);
             return View(model);
         }
 

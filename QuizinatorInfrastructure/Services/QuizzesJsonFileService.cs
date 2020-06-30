@@ -1,27 +1,27 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using QuizinatorUI.Models;
+﻿using QuizinatorCore.Interfaces;
+using QuizinatorCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using QuizinatorCore.Services;
 
-namespace QuizinatorUI.Services
+namespace QuizinatorInfrastructure.Services
 {
     public class QuizzesJsonFileService : IQuizzesDatabaseService
     {
-        public IWebHostEnvironment WebHostEnvironment { get; }
         public FileConverter FileConverter { get; }
 
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "quizzes.json"); }
+            get { return @"../Data/quizzes.json"; }
+            //get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "quizzes.json"); }
         }
 
         //ctor
-        public QuizzesJsonFileService(IWebHostEnvironment webHostEnvironment, FileConverter fileConverter)
+        public QuizzesJsonFileService(FileConverter fileConverter)
         {
-            WebHostEnvironment = webHostEnvironment;
             FileConverter = fileConverter;
         }
         

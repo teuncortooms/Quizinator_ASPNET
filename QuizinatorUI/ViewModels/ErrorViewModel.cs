@@ -1,6 +1,6 @@
 using System;
 
-namespace QuizinatorUI.Models
+namespace QuizinatorUI.ViewModels
 {
     public class ErrorViewModel
     {

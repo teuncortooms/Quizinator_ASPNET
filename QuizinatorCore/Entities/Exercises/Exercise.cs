@@ -1,9 +1,9 @@
-﻿using QuizinatorUI.Services;
+﻿using QuizinatorCore.Services;
 using System;
 using System.Collections.Generic;
-using QuizinatorUI.Models.Questions;
+using QuizinatorCore.Entities.Questions;
 
-namespace QuizinatorUI.Models.Exercises
+namespace QuizinatorCore.Entities.Exercises
 {
     public class Exercise
     {

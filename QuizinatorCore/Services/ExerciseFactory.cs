@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QuizinatorUI.Services
+namespace QuizinatorCore.Services
 {
     public enum ExerciseType
     {

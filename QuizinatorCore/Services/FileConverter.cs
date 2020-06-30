@@ -1,4 +1,4 @@
-﻿using QuizinatorUI.Models;
+﻿using QuizinatorCore.Entities;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace QuizinatorUI.Services
+namespace QuizinatorCore.Services
 {
     public class FileConverter
     {

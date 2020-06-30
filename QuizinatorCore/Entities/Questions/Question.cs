@@ -1,4 +1,4 @@
-﻿namespace QuizinatorUI.Models.Questions
+﻿namespace QuizinatorCore.Entities.Questions
 {
     public class Question
     {
