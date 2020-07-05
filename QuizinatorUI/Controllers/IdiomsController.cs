@@ -9,6 +9,7 @@ using QuizinatorCore.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizinatorCore.Services;
+using QuizinatorUI.ViewServices;
 
 namespace QuizinatorUI.Controllers
 {
@@ -16,46 +17,25 @@ namespace QuizinatorUI.Controllers
     {
         private readonly IIdiomsDatabaseService idiomsService;
         private readonly FileConverter fileConverter;
+        private readonly IdiomsSorter sorter;
 
         //ctor
-        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter)
+        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter, IdiomsSorter idiomsSorter)
         {
             this.idiomsService = idiomsService;
             this.fileConverter = fileConverter;
+            this.sorter = idiomsSorter;
         }
 
         public ActionResult Index(string sortOrder, string searchString)
         {
-            ViewData["WordSortParm"] = sortOrder == "word_asc" ? "word_desc" : "word_asc";
-            ViewData["SentenceSortParm"] = sortOrder == "sentence_asc" ? "sentence_desc" : "sentence_asc";
-            ViewData["TranslationSortParm"] = sortOrder == "translation_asc" ? "translation_desc" : "translation_asc";
-            ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
-            ViewData["CurrentFilter"] = searchString;
-
             IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                idioms = idioms.Where(x => x.Word.Contains(searchString)
-                                        || x.Sentence.Contains(searchString)
-                                        || x.Translation.Contains(searchString)
-                                        || x.Unit.Contains(searchString));
-            }
-
-            idioms = sortOrder switch
-            {
-                "word_asc" => idioms.OrderBy(x => x.Word),
-                "word_desc" => idioms.OrderByDescending(x => x.Word),
-                "sentence_asc" => idioms.OrderBy(x => x.Sentence),
-                "sentence_desc" => idioms.OrderByDescending(x => x.Sentence),
-                "translation_asc" => idioms.OrderBy(x => x.Translation),
-                "translation_desc" => idioms.OrderByDescending(x => x.Translation),
-                "unit_asc" => idioms.OrderBy(x => x.Unit),
-                "unit_desc" => idioms.OrderByDescending(x => x.Unit),
-                _ => idioms,
-            };
+            idioms = sorter.FilterAndSort(sortOrder, searchString, idioms);
+            ViewData = sorter.SetSortandSearchViewParams(sortOrder, searchString, ViewData);
             return View(idioms);
         }
+
+ 
 
         public IEnumerable<Idiom> Json()
         {

@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorCore", "Quizinato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorInfrastructure", "QuizinatorInfrastructure\QuizinatorInfrastructure.csproj", "{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App_Data", "App_Data", "{1F296D31-30E4-4333-9DA9-5A2EF78886D1}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Data", "Data\Data.shproj", "{2BF5AFF7-4E52-4CC3-9719-E6133CD36B24}"
 EndProject
 Global

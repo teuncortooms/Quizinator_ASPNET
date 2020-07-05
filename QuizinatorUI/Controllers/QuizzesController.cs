@@ -65,7 +65,7 @@ namespace QuizinatorUI.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View("Create/SelectIdioms");
         }
 
         [HttpPost]
