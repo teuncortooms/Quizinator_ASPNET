@@ -25,9 +25,9 @@ namespace MockUI
             Console.WriteLine("1. Idioms");
             Console.WriteLine("2. Quizzes");
             Console.Write("Enter a number: ");
-            int.TryParse(Console.ReadLine(), out int action);
+            int.TryParse(Console.ReadLine(), out int choice);
 
-            switch (action)
+            switch (choice)
             {
                 case 1:
                     idiomActions.PromptWithMenu();

@@ -6,6 +6,6 @@ namespace QuizinatorCore.Entities.Idioms
 {
     public class IdiomInCollection : Idiom
     {
-        public bool IsAvailable { get; set; } = true;
+        public bool IsAvailable { get; private set; } = true;
     }
 }

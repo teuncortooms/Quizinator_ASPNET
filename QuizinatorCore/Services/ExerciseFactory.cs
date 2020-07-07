@@ -1,4 +1,5 @@
 ﻿using QuizinatorCore.Entities.Exercises;
+using QuizinatorCore.Entities.Idioms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace QuizinatorCore.Services
 
     public class ExerciseFactory
     {
-        public Dictionary<ExerciseType, string> ExerciseDescriptions { get; private set; } =
+        public static Dictionary<ExerciseType, string> ExerciseDescriptions { get; private set; } =
             new Dictionary<ExerciseType, string>
             {
                 {ExerciseType.A, "Translate the underlined words into Dutch." },
@@ -24,24 +25,22 @@ namespace QuizinatorCore.Services
             };
 
 
-        public static Exercise Create(ExerciseType type, int numberOfQuestions)
+        public static Exercise Create(ExerciseType type, List<IdiomInCollection> idioms)
         {
-            Exercise exercise;
+            var args = (type, description: ExerciseDescriptions[ExerciseType.A], idioms);
+
             switch (type)
             {
                 case ExerciseType.A:
                 case ExerciseType.C:
                 case ExerciseType.D:
                 case ExerciseType.E:
-                    exercise = new Exercise(type, numberOfQuestions);
-                    break;
+                    return new Exercise(args);
                 case ExerciseType.B:
-                    exercise = new ExerciseTypeB(type, numberOfQuestions);
-                    break;
+                    return new ExerciseTypeB(args);
                 default:
                     throw new Exception("Unknown exercise type: " + type);
             }
-            return exercise;
         }
     }
 }
