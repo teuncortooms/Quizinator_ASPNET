@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using QuizinatorCore.Entities;
+﻿using QuizinatorCore.Entities;
+using QuizinatorCore.Entities.Idioms;
+using QuizinatorCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QuizinatorUI.ViewServices
+namespace QuizinatorCore.Services
 {
-    public class IdiomsSorter
+    public class IdiomSorter : ISorter<Idiom>
     {
         public IEnumerable<Idiom> FilterAndSort(string sortOrder, string searchString, IEnumerable<Idiom> idioms)
         {
@@ -42,16 +43,6 @@ namespace QuizinatorUI.ViewServices
             }
 
             return idioms;
-        }
-
-        public ViewDataDictionary SetSortandSearchViewParams(string sortOrder, string searchString, ViewDataDictionary ViewData)
-        {
-            ViewData["WordSortParm"] = sortOrder == "word_asc" ? "word_desc" : "word_asc";
-            ViewData["SentenceSortParm"] = sortOrder == "sentence_asc" ? "sentence_desc" : "sentence_asc";
-            ViewData["TranslationSortParm"] = sortOrder == "translation_asc" ? "translation_desc" : "translation_asc";
-            ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
-            ViewData["CurrentFilter"] = searchString;
-            return ViewData;
         }
     }
 }

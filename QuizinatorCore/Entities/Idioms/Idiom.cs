@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace QuizinatorCore.Entities
+namespace QuizinatorCore.Entities.Idioms
 {
     public class Idiom
     {
@@ -20,5 +21,16 @@ namespace QuizinatorCore.Entities
         [Required]
         public string Unit { get; set; }
         public int[] Ratings { get; set; }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append($"{IdiomId, -40}")
+                .Append($"{Word,-15}")
+                .Append($"{Translation,-15}")
+                .Append($"{Unit,-10}")
+                .Append($"{Sentence}");
+            return builder.ToString();
+        }
     }
 }

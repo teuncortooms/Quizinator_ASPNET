@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorInfrastructure", 
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Data", "Data\Data.shproj", "{2BF5AFF7-4E52-4CC3-9719-E6133CD36B24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockUI", "MockUI\MockUI.csproj", "{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Data\Data.projitems*{2bf5aff7-4e52-4cc3-9719-e6133cd36b24}*SharedItemsImports = 13
@@ -38,6 +40,10 @@ Global
 		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

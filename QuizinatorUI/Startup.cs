@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using QuizinatorInfrastructure.Services; // TODO: remove dependency!
-using QuizinatorUI.ViewServices;
 
 namespace QuizinatorUI
 {
@@ -31,7 +30,7 @@ namespace QuizinatorUI
             services.AddTransient<IIdiomsDatabaseService, IdiomsJsonFileService>();
             services.AddTransient<IQuizzesDatabaseService, QuizzesJsonFileService>();
             services.AddTransient<FileConverter>();
-            services.AddTransient<IdiomsSorter>();
+            services.AddTransient<ISorter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

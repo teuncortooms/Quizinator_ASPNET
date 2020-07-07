@@ -666,5 +666,13 @@
     "Translation": "asdf",
     "Unit": "24",
     "Ratings": null
+  },
+  {
+    "IdiomId": "5dc60062-e4ca-41db-b688-86646925da01",
+    "Word": "Test",
+    "exampleSentence": "This is a test.",
+    "Translation": "Toets",
+    "Unit": "Unit 4",
+    "Ratings": null
   }
 ]

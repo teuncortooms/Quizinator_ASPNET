@@ -9,7 +9,7 @@ using QuizinatorCore.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizinatorCore.Services;
-using QuizinatorUI.ViewServices;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace QuizinatorUI.Controllers
 {
@@ -17,10 +17,10 @@ namespace QuizinatorUI.Controllers
     {
         private readonly IIdiomsDatabaseService idiomsService;
         private readonly FileConverter fileConverter;
-        private readonly IdiomsSorter sorter;
+        private readonly ISorter sorter;
 
         //ctor
-        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter, IdiomsSorter idiomsSorter)
+        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter, ISorter idiomsSorter)
         {
             this.idiomsService = idiomsService;
             this.fileConverter = fileConverter;
@@ -31,11 +31,19 @@ namespace QuizinatorUI.Controllers
         {
             IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
             idioms = sorter.FilterAndSort(sortOrder, searchString, idioms);
-            ViewData = sorter.SetSortandSearchViewParams(sortOrder, searchString, ViewData);
+            ViewData = SetSortandSearchViewParams(sortOrder, searchString, ViewData);
             return View(idioms);
         }
 
- 
+        private ViewDataDictionary SetSortandSearchViewParams(string sortOrder, string searchString, ViewDataDictionary ViewData)
+        {
+            ViewData["WordSortParm"] = sortOrder == "word_asc" ? "word_desc" : "word_asc";
+            ViewData["SentenceSortParm"] = sortOrder == "sentence_asc" ? "sentence_desc" : "sentence_asc";
+            ViewData["TranslationSortParm"] = sortOrder == "translation_asc" ? "translation_desc" : "translation_asc";
+            ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
+            ViewData["CurrentFilter"] = searchString;
+            return ViewData;
+        }
 
         public IEnumerable<Idiom> Json()
         {

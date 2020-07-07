@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using QuizinatorCore.Services;
 using QuizinatorCore.Interfaces;
+using QuizinatorCore.Entities.Idioms;
 
 namespace QuizinatorInfrastructure.Services
 {
@@ -17,8 +18,7 @@ namespace QuizinatorInfrastructure.Services
 
         private string JsonFileName
         {
-            get { return @"../Data/idioms.json"; }
-            //Path. Path.Combine(WebHostEnvironment.WebRootPath, "data", "idioms.json"); }
+            get { return @"C:\Users\teunc\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json"; }
         }
 
         //ctor
