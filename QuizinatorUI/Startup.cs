@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using QuizinatorCore.Services;
 using QuizinatorCore.Interfaces;
+using QuizinatorCore.Entities;
+using QuizinatorCore.Entities.Idioms;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,8 @@ namespace QuizinatorUI
             services.AddTransient<IIdiomsDatabaseService, IdiomsJsonFileService>();
             services.AddTransient<IQuizzesDatabaseService, QuizzesJsonFileService>();
             services.AddTransient<FileConverter>();
+            services.AddTransient<ISorter<Idiom>, IdiomSorter>();
+            services.AddTransient<ISorter<Quiz>, QuizSorter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
