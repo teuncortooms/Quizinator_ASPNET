@@ -18,10 +18,8 @@ namespace QuizinatorInfrastructure.Services
 
         private string JsonFileName
         {
-            get { return "../../../../Data/idioms.json"; }
-            //get {  return Server.MapPath(Request.ApplicationPath + "//sample1.txt"); }
-            //get { return Path.GetFullPath(}
-            // System.AppDomain.CurrentDomain.BaseDirectory +
+            // FIXME:
+            get { return @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json"; }
         }
 
         //ctor

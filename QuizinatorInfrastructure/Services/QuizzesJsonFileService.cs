@@ -15,8 +15,8 @@ namespace QuizinatorInfrastructure.Services
 
         private string JsonFileName
         {
-            get { return "../../../../Data/quizzes.json"; }
-            //get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "quizzes.json"); }
+            // FIXME:
+            get { return @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\quizzes.json"; }
         }
 
         //ctor
