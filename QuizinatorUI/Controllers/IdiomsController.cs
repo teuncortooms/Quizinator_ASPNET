@@ -38,10 +38,10 @@ namespace QuizinatorUI.Controllers
 
         private ViewDataDictionary SetSortandSearchViewParams(string sortOrder, string searchString, ViewDataDictionary ViewData)
         {
-            ViewData["WordSortParm"] = sortOrder == "word_asc" ? "word_desc" : "word_asc";
-            ViewData["SentenceSortParm"] = sortOrder == "sentence_asc" ? "sentence_desc" : "sentence_asc";
-            ViewData["TranslationSortParm"] = sortOrder == "translation_asc" ? "translation_desc" : "translation_asc";
-            ViewData["UnitSortParm"] = sortOrder == "unit_asc" ? "unit_desc" : "unit_asc";
+            ViewData["WordSortParm"] = (sortOrder == "word_asc") ? "word_desc" : "word_asc";
+            ViewData["SentenceSortParm"] = (sortOrder == "sentence_asc") ? "sentence_desc" : "sentence_asc";
+            ViewData["TranslationSortParm"] = (sortOrder == "translation_asc") ? "translation_desc" : "translation_asc";
+            ViewData["UnitSortParm"] = (sortOrder == "unit_asc") ? "unit_desc" : "unit_asc";
             ViewData["CurrentFilter"] = searchString;
             return ViewData;
         }
