@@ -1,6 +1,7 @@
 ﻿using QuizinatorCore.Entities.Idioms;
 using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace QuizinatorCore.Entities.Questions
@@ -39,6 +40,17 @@ namespace QuizinatorCore.Entities.Questions
         {
             Regex regEx = new Regex(word, RegexOptions.IgnoreCase);
             return regEx.Replace(sentence, "________");
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append($"{QuestionId,-40}")
+                .Append($"{IdiomId,-40}")
+                .AppendLine($"{QuestionText,-30}")
+                .Append($"{"", -80}")
+                .AppendLine($"{AnswerText,-30}");
+            return builder.ToString();
         }
     }
 }

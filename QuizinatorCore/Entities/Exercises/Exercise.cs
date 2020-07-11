@@ -65,12 +65,8 @@ namespace QuizinatorCore.Entities.Exercises
             .AppendLine()
             .AppendLine($"Questions:")
             .AppendLine();
-            //Questions.ForEach(x => builder.AppendLine(x.ToString()));
-            //foreach (var question in Questions)
-            //{
-            //    builder.AppendLine(question.ToString());
-            //}
-            //builder.AppendLine();
+            Questions.ForEach(x => builder.AppendLine(x.ToString()));
+            builder.AppendLine();
             return builder.ToString();
         }
     }

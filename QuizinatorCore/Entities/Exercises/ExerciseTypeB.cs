@@ -9,11 +9,10 @@ namespace QuizinatorCore.Entities.Exercises
 {
     class ExerciseTypeB : Exercise
     {
-        private readonly Randomizer randomizer;
-
         public new List<QuestionTypeB> Questions { get; private set; }
-
         public string TranslationsBox { get; set; }
+
+        private readonly Randomizer randomizer;
 
         public ExerciseTypeB(
             (ExerciseType type, string description, List<IdiomInCollection> idioms, QuestionFactory factory) args,
