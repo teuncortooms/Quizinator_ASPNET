@@ -140,7 +140,9 @@
     "exampleSentence": "It\u0027s fun to learn about foreign cultures.",
     "Translation": "vreemd/buitendlands",
     "Unit": "Unit 3",
-    "Ratings": null
+    "Ratings": [
+      4
+    ]
   },
   {
     "IdiomId": "16b06003-07b9-4fa0-97ea-7f7c93461b5e",
@@ -680,7 +682,7 @@
     "Word": "word",
     "exampleSentence": "sentence",
     "Translation": "trans",
-    "Unit": "unit 5",
+    "Unit": "unit 6",
     "Ratings": null
   }
 ]
