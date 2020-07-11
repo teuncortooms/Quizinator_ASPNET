@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace QuizinatorCore.Entities.Questions
 {
-    public abstract class Question
+    public class Question
     {
         public Guid QuestionId { get; set; }
         public Guid IdiomId { get; set; }
@@ -25,8 +25,15 @@ namespace QuizinatorCore.Entities.Questions
             this.SetAnswerText(idiom);
         }
 
-        protected abstract void SetQuestionText(Idiom idiom);
-        protected abstract void SetAnswerText(Idiom idiom);
+        protected virtual void SetQuestionText(Idiom idiom)
+        {
+            // FIXME: No implementation. Cannot be abstract because class is used for json deserialisation.
+        }
+
+        protected virtual void SetAnswerText(Idiom idiom)
+        {
+            // FIXME: idem
+        }
 
         protected string MakeGapInSentence(string sentence, string word)
         {
