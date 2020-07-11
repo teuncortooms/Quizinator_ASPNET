@@ -30,7 +30,6 @@ namespace QuizinatorUI
             services.AddTransient<IIdiomsDatabaseService, IdiomsJsonFileService>();
             services.AddTransient<IQuizzesDatabaseService, QuizzesJsonFileService>();
             services.AddTransient<FileConverter>();
-            services.AddTransient<ISorter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
