@@ -116,7 +116,7 @@ namespace MockUI
             string sentence = Console.ReadLine();
             this.Add(new Idiom()
             {
-                IdiomId = new Guid(),
+                IdiomId = Guid.NewGuid(),
                 Word = word,
                 Translation = translation,
                 Unit = unit,

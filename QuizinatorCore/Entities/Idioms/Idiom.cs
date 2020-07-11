@@ -10,7 +10,7 @@ namespace QuizinatorCore.Entities.Idioms
 {
     public class Idiom
     {
-        public Guid IdiomId { get; private set; }
+        public Guid IdiomId { get; set; }
         [Required]
         public string Word { get; set; }
         [Required]

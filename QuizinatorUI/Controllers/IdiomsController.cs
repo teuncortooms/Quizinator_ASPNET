@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizinatorCore.Services;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using QuizinatorCore.Entities.Idioms;
 
 namespace QuizinatorUI.Controllers
 {
@@ -17,10 +18,10 @@ namespace QuizinatorUI.Controllers
     {
         private readonly IIdiomsDatabaseService idiomsService;
         private readonly FileConverter fileConverter;
-        private readonly ISorter sorter;
+        private readonly ISorter<Idiom> sorter;
 
         //ctor
-        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter, ISorter idiomsSorter)
+        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter, ISorter<Idiom> idiomsSorter)
         {
             this.idiomsService = idiomsService;
             this.fileConverter = fileConverter;

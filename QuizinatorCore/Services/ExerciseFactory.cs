@@ -14,7 +14,7 @@ namespace QuizinatorCore.Services
 
     public class ExerciseFactory
     {
-        public static Dictionary<ExerciseType, string> ExerciseDescriptions { get; private set; } =
+        public Dictionary<ExerciseType, string> ExerciseDescriptions { get; private set; } =
             new Dictionary<ExerciseType, string>
             {
                 {ExerciseType.A, "Translate the underlined words into Dutch." },
@@ -25,9 +25,14 @@ namespace QuizinatorCore.Services
             };
 
 
-        public static Exercise Create(ExerciseType type, List<IdiomInCollection> idioms)
+        public Exercise Create(ExerciseType type, List<IdiomInCollection> idioms)
         {
-            var args = (type, description: ExerciseDescriptions[ExerciseType.A], idioms);
+            var args = (
+                type,
+                description: ExerciseDescriptions[type],
+                idioms,
+                factory: new QuestionFactory()
+                );
 
             switch (type)
             {
@@ -37,7 +42,7 @@ namespace QuizinatorCore.Services
                 case ExerciseType.E:
                     return new Exercise(args);
                 case ExerciseType.B:
-                    return new ExerciseTypeB(args);
+                    return new ExerciseTypeB(args, new Randomizer());
                 default:
                     throw new Exception("Unknown exercise type: " + type);
             }

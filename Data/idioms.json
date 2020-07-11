@@ -674,5 +674,13 @@
     "Translation": "Toets",
     "Unit": "Unit 4",
     "Ratings": null
+  },
+  {
+    "IdiomId": "8d6b6735-7fdf-4e87-8989-276ea3e5dfe7",
+    "Word": "word",
+    "exampleSentence": "sentence",
+    "Translation": "trans",
+    "Unit": "unit 5",
+    "Ratings": null
   }
 ]

@@ -1,4 +1,6 @@
-﻿using QuizinatorCore.Entities;
+﻿using AutoMapper;
+using QuizinatorCore.Entities;
+using QuizinatorCore.Entities.Idioms;
 using QuizinatorCore.Interfaces;
 using QuizinatorCore.Services;
 using System;
@@ -11,13 +13,15 @@ namespace MockUI
     class QuizActions
     {
         private readonly IQuizzesDatabaseService quizzesService;
+        private readonly IIdiomsDatabaseService idiomsService;
         private readonly ISorter<Quiz> sorter;
         private bool isCanceled;
 
         //ctor
-        public QuizActions(IQuizzesDatabaseService quizzesService, ISorter<Quiz> sorter)
+        public QuizActions(IQuizzesDatabaseService quizzesService, IIdiomsDatabaseService idiomsService, ISorter<Quiz> sorter)
         {
             this.quizzesService = quizzesService;
+            this.idiomsService = idiomsService;
             this.sorter = sorter;
         }
 
@@ -94,7 +98,7 @@ namespace MockUI
         public void ShowQuiz(Guid id)
         {
             Quiz quiz = quizzesService.GetQuizzes().First(x => x.QuizId == id);
-            Console.WriteLine(quiz);
+            Console.WriteLine(quiz.GetDetails());
         }
 
         public void SubmitRating(Guid id, int rating)
@@ -107,11 +111,9 @@ namespace MockUI
         {
             Console.WriteLine("Title: ");
             string title = Console.ReadLine();
-            this.Add(new Quiz()
-            {
-                QuizId = new Guid(),
-                Title = title,
-            });
+            MapperConfiguration mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<Idiom, IdiomInCollection>());
+            List<Idiom> idioms = idiomsService.GetIdioms().ToList();
+            this.Add(new Quiz(title, new ExerciseFactory(), new Randomizer(), mapperConfig, idioms));
         }
 
         public void Add(Quiz newQuiz)

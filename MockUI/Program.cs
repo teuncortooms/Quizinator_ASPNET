@@ -9,9 +9,11 @@ namespace MockUI
     {
         static void Main(string[] args)
         {
-            FileConverter fileConverter = new FileConverter();
-            IdiomActions idiomActions = new IdiomActions(new IdiomsJsonFileService(fileConverter), new IdiomSorter());
-            QuizActions quizActions = new QuizActions(new QuizzesJsonFileService(fileConverter), new QuizSorter());
+            CoreServices coreServices = new CoreServices();
+            IdiomsJsonFileService idiomsService = new IdiomsJsonFileService(coreServices.FileConverter);
+            QuizzesJsonFileService quizzesService = new QuizzesJsonFileService(coreServices.FileConverter);
+            IdiomActions idiomActions = new IdiomActions(idiomsService, new IdiomSorter());
+            QuizActions quizActions = new QuizActions(quizzesService, idiomsService, new QuizSorter());
 
             while (true)
             {

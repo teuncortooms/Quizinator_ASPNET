@@ -7,30 +7,30 @@ namespace QuizinatorCore.Services
 {
     public class Randomizer
     {
-        public T[] GetRandom<T>(T[] array, int n)
+        public List<T> GetRandom<T>(List<T> list, int n)
         {
-            List<T> shuffled = this.Shuffle<T>(array).ToList<T>();
+            List<T> shuffled = this.Shuffle<T>(list);
             List<T> selection = new List<T>();
             for (int i = 0; i < n; i++)
             {
                 selection.Add(shuffled[i]);
             }
-            return selection.ToArray();
+            return selection;
         }
 
-        public int[] GetRandomInts(int from, int to, int n)
+        public List<int> GetRandomInts(int from, int to, int n)
         {
             List<int> all = new List<int>();
-            for (int i = from; i <= to; i++)
+            for (int i = from; i < to; i++)
             {
                 all.Add(i);
             }
-            return this.GetRandom<int>(all.ToArray(), n);
+            return this.GetRandom<int>(all, n);
         }
 
-        public T[] Shuffle<T>(T[] array)
+        public List<T> Shuffle<T>(List<T> list)
         {
-            int currentIndex = array.Length;
+            int currentIndex = list.Count;
 
             // While there remain elements to shuffle...
             while (currentIndex != 0)
@@ -41,11 +41,11 @@ namespace QuizinatorCore.Services
                 randomIndex = (new Random()).Next(currentIndex);
                 currentIndex -= 1;
                 // And swap it with the current element.
-                temporaryValue = array[currentIndex];
-                array[currentIndex] = array[randomIndex];
-                array[randomIndex] = temporaryValue;
+                temporaryValue = list[currentIndex];
+                list[currentIndex] = list[randomIndex];
+                list[randomIndex] = temporaryValue;
             }
-            return array;
+            return list;
         }
     }
 }
