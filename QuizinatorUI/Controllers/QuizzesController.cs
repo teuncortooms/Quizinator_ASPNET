@@ -26,7 +26,9 @@ namespace QuizinatorUI.Controllers
 
         public ActionResult Index(string sortOrder, string searchString)
         {
-            ViewData["TitleSortParm"] = sortOrder == "title_asc" ? "title_desc" : "title_asc";
+            ViewData["TitleSortParm"] = (sortOrder == "title_asc") ? "title_desc" : "title_asc";
+            ViewData["ExercisesSortParm"] = (sortOrder == "exercises_asc") ? "exercises_desc" : "exercises_asc";
+            ViewData["CollectionSizeSortParm"] = (sortOrder == "collectionSize_asc") ? "collectionSize_desc" : "collectionSize_asc";
             ViewData["CurrentFilter"] = searchString;
 
             IEnumerable<Quiz> quizzes = quizzesService.GetQuizzes();
