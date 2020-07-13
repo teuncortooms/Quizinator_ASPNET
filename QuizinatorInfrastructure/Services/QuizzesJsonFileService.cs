@@ -9,68 +9,26 @@ using QuizinatorCore.Services;
 
 namespace QuizinatorInfrastructure.Services
 {
-    public class QuizzesJsonFileService : IQuizzesDatabaseService
+    public class QuizzesJsonFileService : JsonFileService<Quiz>
     {
-        public FileConverter FileConverter { get; }
+        protected readonly new string JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\quizzes.json";
 
-        private string JsonFileName
+        protected override Guid GetId(Quiz quiz)
         {
-            // FIXME:
-            get { return @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\quizzes.json"; }
+            return quiz.QuizId;
         }
 
-        //ctor
-        public QuizzesJsonFileService(FileConverter fileConverter)
+        protected override Quiz AddIdToItem(Quiz newQuiz)
         {
-            FileConverter = fileConverter;
-        }
-        
-        public IEnumerable<Quiz> GetQuizzes()
-        {
-            using StreamReader jsonFileReader = File.OpenText(JsonFileName);
-            string json = jsonFileReader.ReadToEnd();
-            return FileConverter.ConvertJsonToObjects<Quiz>(json);
-        }
-
-        public void AddQuiz(Quiz newQuiz)
-        {
-            IEnumerable<Quiz> quizzes = GetQuizzes();
             newQuiz.QuizId = Guid.NewGuid();
-            quizzes = quizzes.Append(newQuiz);
-            UpdateSource(quizzes);
+            return newQuiz;
         }
 
-        public void AddQuizzes(Quiz[] newQuizzes)
+        public async override void AddRating(Guid quizId, int rating)
         {
-            IEnumerable<Quiz> quizzes = GetQuizzes();
-            foreach (Quiz newQuiz in newQuizzes)
-            {
-                newQuiz.QuizId = Guid.NewGuid();
-                quizzes = quizzes.Append(newQuiz);
-            }
-            UpdateSource(quizzes);
-        }
+            IEnumerable<Quiz> quizzes = await GetAll();
 
-        public void ReplaceQuiz(Quiz updatedQuiz)
-        {
-            List<Quiz> idioms = GetQuizzes().ToList();
-            int index = idioms.FindIndex(x => x.QuizId == updatedQuiz.QuizId);
-            idioms[index] = updatedQuiz;
-            UpdateSource(idioms);
-        }
-
-        public void DeleteQuiz(Guid id)
-        {
-            List<Quiz> quizzes = GetQuizzes().ToList();
-            quizzes.RemoveAll(x => x.QuizId == id);
-            UpdateSource(quizzes);
-        }
-
-        public void AddRating(Guid id, int rating)
-        {
-            IEnumerable<Quiz> quizzes = GetQuizzes();
-
-            Quiz quiz = quizzes.First(x => x.QuizId == id);
+            Quiz quiz = quizzes.First(x => GetId(x) == quizId);
 
             if (quiz.Ratings == null)
             {
@@ -86,11 +44,6 @@ namespace QuizinatorInfrastructure.Services
             UpdateSource(quizzes);
         }
 
-        private void UpdateSource(IEnumerable<Quiz> quizzes)
-        {
-            using FileStream jsonFile = File.Open(JsonFileName, FileMode.Create);
-            Utf8JsonWriter writer = new Utf8JsonWriter(jsonFile, new JsonWriterOptions { Indented = true });
-            JsonSerializer.Serialize(writer, quizzes);
-        }
+
     }
 }

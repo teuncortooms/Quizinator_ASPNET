@@ -14,24 +14,24 @@ namespace QuizinatorUI.Controllers
 {
     public class QuizzesController : Controller
     {
-        private readonly IQuizzesDatabaseService quizzesService;
+        private readonly IDatabaseService<Quiz> quizzesService;
         private readonly FileConverter fileConverter;
 
         //ctor
-        public QuizzesController(IQuizzesDatabaseService quizzesService, FileConverter fileConverter)
+        public QuizzesController(IDatabaseService<Quiz> quizzesService, FileConverter fileConverter)
         {
             this.quizzesService = quizzesService;
             this.fileConverter = fileConverter;
         }
 
-        public ActionResult Index(string sortOrder, string searchString)
+        public async Task<ActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["TitleSortParm"] = (sortOrder == "title_asc") ? "title_desc" : "title_asc";
             ViewData["ExercisesSortParm"] = (sortOrder == "exercises_asc") ? "exercises_desc" : "exercises_asc";
             ViewData["CollectionSizeSortParm"] = (sortOrder == "collectionSize_asc") ? "collectionSize_desc" : "collectionSize_asc";
             ViewData["CurrentFilter"] = searchString;
 
-            IEnumerable<Quiz> quizzes = quizzesService.GetQuizzes();
+            IEnumerable<Quiz> quizzes = await quizzesService.GetAll();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -47,14 +47,14 @@ namespace QuizinatorUI.Controllers
             return View(quizzes);
         }
 
-        public IEnumerable<Quiz> Json()
+        public async Task<IEnumerable<Quiz>> Json()
         {
-            return quizzesService.GetQuizzes();
+            return await quizzesService.GetAll();
         }
 
-        public ActionResult Details(Guid id)
+        public async Task<ActionResult> Details(Guid id)
         {
-            Quiz quiz = quizzesService.GetQuizzes().First(x => x.QuizId == id);
+            Quiz quiz = (await quizzesService.GetAll()).First(x => x.QuizId == id);
             return View(quiz);
         }
 
@@ -76,7 +76,7 @@ namespace QuizinatorUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                quizzesService.AddQuiz(newQuiz);
+                quizzesService.Add(newQuiz);
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -86,9 +86,9 @@ namespace QuizinatorUI.Controllers
         }
 
 
-        public ActionResult Edit(Guid id)
+        public async Task<ActionResult> Edit(Guid id)
         {
-            Quiz quiz = quizzesService.GetQuizzes().First(x => x.QuizId == id);
+            Quiz quiz = (await quizzesService.GetAll()).First(x => x.QuizId == id);
             return View(quiz);
         }
 
@@ -98,7 +98,7 @@ namespace QuizinatorUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                quizzesService.ReplaceQuiz(updatedQuiz);
+                quizzesService.Replace(updatedQuiz);
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -107,9 +107,9 @@ namespace QuizinatorUI.Controllers
             }
         }
 
-        public ActionResult Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            Quiz model = quizzesService.GetQuizzes().First(x => x.QuizId == id);
+            Quiz model = (await quizzesService.GetAll()).First(x => x.QuizId == id);
             return View(model);
         }
 
@@ -119,7 +119,7 @@ namespace QuizinatorUI.Controllers
         {
             try
             {
-                quizzesService.DeleteQuiz(id);
+                quizzesService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -140,7 +140,7 @@ namespace QuizinatorUI.Controllers
             try
             {
                 Quiz[] newQuizzes = fileConverter.ConvertFileToObjects<Quiz>(model.MyFile);
-                quizzesService.AddQuizzes(newQuizzes);
+                quizzesService.AddMultiple(newQuizzes);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -11,12 +11,12 @@ namespace MockUI
 {
     class IdiomActions
     {
-        private readonly IIdiomsDatabaseService idiomsService;
+        private readonly IDatabaseService<Idiom> idiomsService;
         private readonly ISorter<Idiom> sorter;
         private bool isCanceled;
 
         //ctor
-        public IdiomActions(IIdiomsDatabaseService idiomsService, ISorter<Idiom> idiomsSorter)
+        public IdiomActions(IDatabaseService<Idiom> idiomsService, ISorter<Idiom> idiomsSorter)
         {
             this.idiomsService = idiomsService;
             this.sorter = idiomsSorter;
@@ -75,9 +75,9 @@ namespace MockUI
             }
         }
 
-        public void ShowList(string sortOrder = null, string searchString = null)
+        public async void ShowList(string sortOrder = null, string searchString = null)
         {
-            IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
+            IEnumerable<Idiom> idioms = await idiomsService.GetAll();
             idioms = sorter.FilterAndSort(sortOrder, searchString, idioms);
             foreach (Idiom idiom in idioms)
             {
@@ -92,9 +92,9 @@ namespace MockUI
             this.ShowIdiom(id);
         }
 
-        public void ShowIdiom(Guid id)
+        public async void ShowIdiom(Guid id)
         {
-            Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom idiom = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
             Console.WriteLine(idiom);
         }
 
@@ -126,7 +126,7 @@ namespace MockUI
 
         public void Add(Idiom newIdiom)
         {
-            idiomsService.AddIdiom(newIdiom);
+            idiomsService.Add(newIdiom);
             Console.WriteLine("Idiom added: ");
             Console.WriteLine(newIdiom);
         }
@@ -135,7 +135,7 @@ namespace MockUI
         {
             try
             {
-                idiomsService.ReplaceIdiom(updatedIdiom);
+                idiomsService.Replace(updatedIdiom);
                 Console.WriteLine("Update succeeded: ");
                 Console.WriteLine(updatedIdiom);
             }
@@ -149,7 +149,7 @@ namespace MockUI
         {
             try
             {
-                idiomsService.DeleteIdiom(id);
+                idiomsService.Delete(id);
                 Console.WriteLine("Deleted.");
             }
             catch

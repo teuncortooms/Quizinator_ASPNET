@@ -12,13 +12,13 @@ namespace MockUI
 {
     class QuizActions
     {
-        private readonly IQuizzesDatabaseService quizzesService;
-        private readonly IIdiomsDatabaseService idiomsService;
+        private readonly IDatabaseService<Quiz> quizzesService;
+        private readonly IDatabaseService<Idiom> idiomsService;
         private readonly ISorter<Quiz> sorter;
         private bool isCanceled;
 
         //ctor
-        public QuizActions(IQuizzesDatabaseService quizzesService, IIdiomsDatabaseService idiomsService, ISorter<Quiz> sorter)
+        public QuizActions(IDatabaseService<Quiz> quizzesService, IDatabaseService<Idiom> idiomsService, ISorter<Quiz> sorter)
         {
             this.quizzesService = quizzesService;
             this.idiomsService = idiomsService;
@@ -78,9 +78,9 @@ namespace MockUI
             }
         }
 
-        public void ShowList(string sortOrder = null, string searchString = null)
+        public async void ShowList(string sortOrder = null, string searchString = null)
         {
-            IEnumerable<Quiz> quizzes = quizzesService.GetQuizzes();
+            IEnumerable<Quiz> quizzes = await quizzesService.GetAll();
             quizzes = sorter.FilterAndSort(sortOrder, searchString, quizzes);
             foreach (Quiz quiz in quizzes)
             {
@@ -95,9 +95,9 @@ namespace MockUI
             this.ShowQuiz(id);
         }
 
-        public void ShowQuiz(Guid id)
+        public async void ShowQuiz(Guid id)
         {
-            Quiz quiz = quizzesService.GetQuizzes().First(x => x.QuizId == id);
+            Quiz quiz = (await quizzesService.GetAll()).First(x => x.QuizId == id);
             Console.WriteLine(quiz.GetDetails());
         }
 
@@ -107,18 +107,18 @@ namespace MockUI
             ShowQuiz(id);
         }
 
-        public void Add()
+        public async void Add()
         {
             Console.WriteLine("Title: ");
             string title = Console.ReadLine();
             MapperConfiguration mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<Idiom, IdiomInCollection>());
-            List<Idiom> idioms = idiomsService.GetIdioms().ToList();
+            List<Idiom> idioms = (await idiomsService.GetAll()).ToList();
             this.Add(new Quiz(title, new ExerciseFactory(), new Randomizer(), mapperConfig, idioms));
         }
 
         public void Add(Quiz newQuiz)
         {
-            quizzesService.AddQuiz(newQuiz);
+            quizzesService.Add(newQuiz);
             Console.WriteLine("Quiz added: ");
             Console.WriteLine(newQuiz);
         }
@@ -127,7 +127,7 @@ namespace MockUI
         {
             try
             {
-                quizzesService.ReplaceQuiz(updatedQuiz);
+                quizzesService.Replace(updatedQuiz);
                 Console.WriteLine("Update succeeded: ");
                 Console.WriteLine(updatedQuiz);
             }
@@ -141,7 +141,7 @@ namespace MockUI
         {
             try
             {
-                quizzesService.DeleteQuiz(id);
+                quizzesService.Delete(id);
                 Console.WriteLine("Deleted.");
             }
             catch

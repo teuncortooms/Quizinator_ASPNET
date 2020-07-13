@@ -12,68 +12,26 @@ using QuizinatorCore.Entities.Idioms;
 
 namespace QuizinatorInfrastructure.Services
 {
-    public class IdiomsJsonFileService : IIdiomsDatabaseService
+    public class IdiomsJsonFileService : JsonFileService<Idiom>
     {
-        public FileConverter FileConverter { get; }
+        protected readonly new string JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json";
 
-        private string JsonFileName
+        protected override Guid GetId(Idiom idiom)
         {
-            // FIXME:
-            get { return @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json"; }
+            return idiom.IdiomId;
         }
 
-        //ctor
-        public IdiomsJsonFileService(FileConverter fileConverter)
+        protected override Idiom AddIdToItem(Idiom newItem)
         {
-            this.FileConverter = fileConverter;
+            newItem.IdiomId = Guid.NewGuid();
+            return newItem;
         }
 
-        public IEnumerable<Idiom> GetIdioms()
+        public async override void AddRating(Guid idiomId, int rating)
         {
-            using StreamReader jsonFileReader = File.OpenText(JsonFileName);
-            string json = jsonFileReader.ReadToEnd();
-            return FileConverter.ConvertJsonToObjects<Idiom>(json);
-        }
+            IEnumerable<Idiom> idioms = await GetAll();
 
-        public void AddIdiom(Idiom idiom)
-        {
-            IEnumerable<Idiom> idioms = GetIdioms();
-            idiom.IdiomId = Guid.NewGuid();
-            idioms = idioms.Append(idiom);
-            UpdateSource(idioms);
-        }
-
-        public void AddIdioms(Idiom[] newIdioms)
-        {
-            IEnumerable<Idiom> idioms = GetIdioms();
-            foreach (Idiom newIdiom in newIdioms)
-            {
-                newIdiom.IdiomId = Guid.NewGuid();
-                idioms = idioms.Append(newIdiom);
-            }
-            UpdateSource(idioms);
-        }
-
-        public void ReplaceIdiom(Idiom updatedIdiom)
-        {
-            List<Idiom> idioms = GetIdioms().ToList();
-            int index = idioms.FindIndex(x => x.IdiomId == updatedIdiom.IdiomId);
-            idioms[index] = updatedIdiom;
-            UpdateSource(idioms);
-        }
-
-        public void DeleteIdiom(Guid id)
-        {
-            List<Idiom> idioms = GetIdioms().ToList();
-            idioms.RemoveAll(x => x.IdiomId == id);
-            UpdateSource(idioms);
-        }
-
-        public void AddRating(Guid idiomId, int rating)
-        {
-            IEnumerable<Idiom> idioms = GetIdioms();
-
-            Idiom idiom = idioms.First(x => x.IdiomId == idiomId);
+            Idiom idiom = idioms.First(x => GetId(x) == idiomId);
 
             if (idiom.Ratings == null)
             {
@@ -87,13 +45,6 @@ namespace QuizinatorInfrastructure.Services
             }
 
             UpdateSource(idioms);
-        }
-
-        private void UpdateSource(IEnumerable<Idiom> idioms)
-        {
-            using FileStream jsonFile = File.Open(JsonFileName, FileMode.Create);
-            Utf8JsonWriter writer = new Utf8JsonWriter(jsonFile, new JsonWriterOptions { Indented = true });
-            JsonSerializer.Serialize(writer, idioms);
         }
     }
 }

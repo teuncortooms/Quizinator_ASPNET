@@ -16,21 +16,21 @@ namespace QuizinatorUI.Controllers
 {
     public class IdiomsController : Controller
     {
-        private readonly IIdiomsDatabaseService idiomsService;
+        private readonly IDatabaseService<Idiom> idiomsService;
         private readonly FileConverter fileConverter;
         private readonly ISorter<Idiom> sorter;
 
         //ctor
-        public IdiomsController(IIdiomsDatabaseService idiomsService, FileConverter fileConverter, ISorter<Idiom> idiomsSorter)
+        public IdiomsController(IDatabaseService<Idiom> idiomsService, FileConverter fileConverter, ISorter<Idiom> idiomsSorter)
         {
             this.idiomsService = idiomsService;
             this.fileConverter = fileConverter;
             this.sorter = idiomsSorter;
         }
 
-        public ActionResult Index(string sortOrder, string searchString)
+        public async Task<ActionResult> Index(string sortOrder, string searchString)
         {
-            IEnumerable<Idiom> idioms = idiomsService.GetIdioms();
+            IEnumerable<Idiom> idioms = await idiomsService.GetAll();
             idioms = sorter.FilterAndSort(sortOrder, searchString, idioms);
             ViewData = SetSortandSearchViewParams(sortOrder, searchString, ViewData);
             return View(idioms);
@@ -46,14 +46,14 @@ namespace QuizinatorUI.Controllers
             return ViewData;
         }
 
-        public IEnumerable<Idiom> Json()
+        public async Task<IEnumerable<Idiom>> Json()
         {
-            return idiomsService.GetIdioms();
+            return await idiomsService.GetAll();
         }
 
-        public ActionResult Details(Guid id)
+        public async Task<ActionResult> Details(Guid id)
         {
-            Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom idiom = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
             return View(idiom);
         }
 
@@ -75,7 +75,7 @@ namespace QuizinatorUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                idiomsService.AddIdiom(newIdiom);
+                idiomsService.Add(newIdiom);
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -84,9 +84,9 @@ namespace QuizinatorUI.Controllers
             }
         }
 
-        public ActionResult Edit(Guid id)
+        public async Task<ActionResult> Edit(Guid id)
         {
-            Idiom idiom = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom idiom = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
             return View(idiom);
         }
 
@@ -96,7 +96,7 @@ namespace QuizinatorUI.Controllers
         {
             try
             {
-                idiomsService.ReplaceIdiom(updatedIdiom);
+                idiomsService.Replace(updatedIdiom);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -106,9 +106,9 @@ namespace QuizinatorUI.Controllers
             }
         }
 
-        public ActionResult Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            Idiom model = idiomsService.GetIdioms().First(x => x.IdiomId == id);
+            Idiom model = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
             return View(model);
         }
 
@@ -118,7 +118,7 @@ namespace QuizinatorUI.Controllers
         {
             try
             {
-                idiomsService.DeleteIdiom(id);
+                idiomsService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -139,7 +139,7 @@ namespace QuizinatorUI.Controllers
             try
             {
                 Idiom[] newIdioms = fileConverter.ConvertFileToObjects<Idiom>(model.MyFile);
-                idiomsService.AddIdioms(newIdioms);
+                idiomsService.AddMultiple(newIdioms);
                 return RedirectToAction(nameof(Index));
             }
             catch

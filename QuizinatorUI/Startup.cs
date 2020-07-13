@@ -29,8 +29,8 @@ namespace QuizinatorUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IIdiomsDatabaseService, IdiomsJsonFileService>();
-            services.AddTransient<IQuizzesDatabaseService, QuizzesJsonFileService>();
+            services.AddTransient<IDatabaseService<Idiom>, IdiomsJsonFileService>();
+            services.AddTransient<IDatabaseService<Quiz>, QuizzesJsonFileService>();
             services.AddTransient<FileConverter>();
             services.AddTransient<ISorter<Idiom>, IdiomSorter>();
             services.AddTransient<ISorter<Quiz>, QuizSorter>();

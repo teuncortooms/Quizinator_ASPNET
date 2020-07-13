@@ -23,12 +23,12 @@ namespace QuizinatorCore.Services
             string contentType = file.ContentType;
             return contentType switch
             {
-                "application/json" => ConvertJsonToObjects<T>(this.contents),
+                "application/json" => ConvertJsonStringToObjects<T>(this.contents),
                 _ => throw new FormatException(),
             };
         }
 
-        public T[] ConvertJsonToObjects<T>(string json)
+        private T[] ConvertJsonStringToObjects<T>(string json)
         {
             return JsonSerializer.Deserialize<T[]>(json, new JsonSerializerOptions
             {
