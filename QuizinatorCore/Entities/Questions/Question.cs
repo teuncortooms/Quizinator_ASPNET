@@ -28,7 +28,7 @@ namespace QuizinatorCore.Entities.Questions
 
         protected virtual void SetQuestionText(Idiom idiom)
         {
-            // FIXME: No implementation. Cannot be abstract because class is used for json deserialisation.
+            // FIXME: No implementation. Cannot be abstract because type is used for json deserialisation.
         }
 
         protected virtual void SetAnswerText(Idiom idiom)
