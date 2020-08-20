@@ -277,5 +277,13 @@
     "Translation": "asdfasd334561",
     "Unit": "sdf",
     "Ratings": null
+  },
+  {
+    "IdiomId": "125e0bfd-94fd-4f8c-b051-4bbdc4adbd19",
+    "Word": "testword",
+    "exampleSentence": "testsentence",
+    "Translation": "testtranslation",
+    "Unit": "testunit",
+    "Ratings": null
   }
 ]
