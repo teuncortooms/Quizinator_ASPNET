@@ -7,11 +7,11 @@ namespace QuizinatorCore.Interfaces
 {
     public interface IDatabaseService<T>
     {
-        public Task<IEnumerable<T>> GetAll();
-        public void Add(T item);
-        public void AddMultiple(T[] newItems);
-        public void Replace(T updatedItem);
-        public void Delete(Guid id);
-        public void AddRating(Guid itemId, int rating);
+        public Task<IEnumerable<T>> GetAllAsync();
+        public Task AddAsync(T item);
+        public Task AddMultipleAsync(T[] newItems);
+        public Task ReplaceAsync(T updatedItem);
+        public Task DeleteAsync(Guid id);
+        public Task AddRatingAsync(Guid itemId, int rating);
     }
 }
