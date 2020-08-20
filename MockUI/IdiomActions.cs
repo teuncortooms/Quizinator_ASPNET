@@ -100,7 +100,7 @@ namespace MockUI
 
         public void SubmitRating(Guid id, int rating)
         {
-            idiomsService.AddRating(id, rating);
+            idiomsService.AddRatingAsync(id, rating);
             ShowIdiom(id);
         }
 
@@ -126,7 +126,7 @@ namespace MockUI
 
         public void Add(Idiom newIdiom)
         {
-            idiomsService.Add(newIdiom);
+            idiomsService.AddAsync(newIdiom);
             Console.WriteLine("Idiom added: ");
             Console.WriteLine(newIdiom);
         }
@@ -135,7 +135,7 @@ namespace MockUI
         {
             try
             {
-                idiomsService.Replace(updatedIdiom);
+                idiomsService.ReplaceAsync(updatedIdiom);
                 Console.WriteLine("Update succeeded: ");
                 Console.WriteLine(updatedIdiom);
             }
@@ -149,7 +149,7 @@ namespace MockUI
         {
             try
             {
-                idiomsService.Delete(id);
+                idiomsService.DeleteAsync(id);
                 Console.WriteLine("Deleted.");
             }
             catch

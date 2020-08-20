@@ -9,9 +9,8 @@ namespace MockUI
     {
         static void Main(string[] args)
         {
-            CoreServices coreServices = new CoreServices();
-            IdiomsJsonFileService idiomsService = new IdiomsJsonFileService(coreServices.FileConverter);
-            QuizzesJsonFileService quizzesService = new QuizzesJsonFileService(coreServices.FileConverter);
+            IdiomsJsonFileService idiomsService = new IdiomsJsonFileService();
+            QuizzesJsonFileService quizzesService = new QuizzesJsonFileService();
             IdiomActions idiomActions = new IdiomActions(idiomsService, new IdiomSorter());
             QuizActions quizActions = new QuizActions(quizzesService, idiomsService, new QuizSorter());
 

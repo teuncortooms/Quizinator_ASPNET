@@ -103,7 +103,7 @@ namespace MockUI
 
         public void SubmitRating(Guid id, int rating)
         {
-            quizzesService.AddRating(id, rating);
+            quizzesService.AddRatingAsync(id, rating);
             ShowQuiz(id);
         }
 
@@ -118,7 +118,7 @@ namespace MockUI
 
         public void Add(Quiz newQuiz)
         {
-            quizzesService.Add(newQuiz);
+            quizzesService.AddAsync(newQuiz);
             Console.WriteLine("Quiz added: ");
             Console.WriteLine(newQuiz);
         }
@@ -127,7 +127,7 @@ namespace MockUI
         {
             try
             {
-                quizzesService.Replace(updatedQuiz);
+                quizzesService.ReplaceAsync(updatedQuiz);
                 Console.WriteLine("Update succeeded: ");
                 Console.WriteLine(updatedQuiz);
             }
@@ -141,7 +141,7 @@ namespace MockUI
         {
             try
             {
-                quizzesService.Delete(id);
+                quizzesService.DeleteAsync(id);
                 Console.WriteLine("Deleted.");
             }
             catch
