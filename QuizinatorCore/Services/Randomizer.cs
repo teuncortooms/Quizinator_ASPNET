@@ -9,6 +9,11 @@ namespace QuizinatorCore.Services
     {
         public List<T> GetRandom<T>(List<T> list, int n)
         {
+            if (n > list.Count)
+            {
+                throw new ArgumentException("n cannot be bigger than list size", "n");
+            }
+            
             List<T> shuffled = this.Shuffle<T>(list);
             List<T> selection = new List<T>();
             for (int i = 0; i < n; i++)
