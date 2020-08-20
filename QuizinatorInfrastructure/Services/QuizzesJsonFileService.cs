@@ -6,27 +6,32 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using QuizinatorCore.Services;
+using System.Threading.Tasks;
 
 namespace QuizinatorInfrastructure.Services
 {
     public class QuizzesJsonFileService : JsonFileService<Quiz>
     {
-        protected readonly new string JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\quizzes.json";
+        //ctor
+        public QuizzesJsonFileService()
+        {
+            this.JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\quizzes.json";
+        }
 
         protected override Guid GetId(Quiz quiz)
         {
             return quiz.QuizId;
         }
 
-        protected override Quiz AddIdToItem(Quiz newQuiz)
+        protected override Quiz AddIdToNewItem(Quiz newQuiz)
         {
             newQuiz.QuizId = Guid.NewGuid();
             return newQuiz;
         }
 
-        public async override void AddRating(Guid quizId, int rating)
+        public async override Task AddRatingAsync(Guid quizId, int rating)
         {
-            IEnumerable<Quiz> quizzes = await GetAll();
+            IEnumerable<Quiz> quizzes = await GetAllAsync();
 
             Quiz quiz = quizzes.First(x => GetId(x) == quizId);
 
@@ -41,7 +46,7 @@ namespace QuizinatorInfrastructure.Services
                 quiz.Ratings = ratings.ToArray();
             }
 
-            UpdateSource(quizzes);
+            await UpdateSourceAsync(quizzes);
         }
 
 

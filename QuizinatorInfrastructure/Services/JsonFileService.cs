@@ -13,13 +13,13 @@ namespace QuizinatorInfrastructure.Services
 {
     public abstract class JsonFileService<T> : IDatabaseService<T>
     {
-        protected readonly string JsonFileName;
+        protected string JsonFileName;
 
         protected abstract Guid GetId(T item);
-        protected abstract T AddIdToItem(T newItem);
-        public abstract void AddRating(Guid itemId, int rating);
+        protected abstract T AddIdToNewItem(T newItem);
+        public abstract Task AddRatingAsync(Guid itemId, int rating);
 
-        public async Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             var options = new JsonSerializerOptions
             {
@@ -29,40 +29,46 @@ namespace QuizinatorInfrastructure.Services
             return await JsonSerializer.DeserializeAsync<IEnumerable<T>>(fs, options);
         }
 
-        public async void Add(T item)
+        public async Task AddAsync(T item)
         {
-            IEnumerable<T> items = await GetAll();
-            items = items.Append(item);
-            UpdateSource(items);
+            IEnumerable<T> items = await GetAllAsync();
+            items = AddIdToNewItemAndAppend(item, items);
+            await UpdateSourceAsync(items);
         }
 
-        public async void AddMultiple(T[] newItems)
+        public async Task AddMultipleAsync(T[] newItems)
         {
-            IEnumerable<T> items = await GetAll();
+            IEnumerable<T> items = await GetAllAsync();
             foreach (T item in newItems)
             {
-                T newItem = AddIdToItem(item);
-                items = items.Append(newItem);
+                items = AddIdToNewItemAndAppend(item, items);
             }
-            UpdateSource(items);
+            await UpdateSourceAsync(items);
         }
 
-        public async void Replace(T updatedItem)
+        protected IEnumerable<T> AddIdToNewItemAndAppend(T item, IEnumerable<T> items)
         {
-            List<T> items = (await GetAll()).ToList();
+            T newItem = AddIdToNewItem(item);
+            items = items.Append(newItem);
+            return items;
+        }
+
+        public async Task ReplaceAsync(T updatedItem)
+        {
+            List<T> items = (await GetAllAsync()).ToList();
             int index = items.FindIndex(x => GetId(x) == GetId(updatedItem));
             items[index] = updatedItem;
-            UpdateSource(items);
+            await UpdateSourceAsync(items);
         }
 
-        public async void Delete(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
-            List<T> idioms = (await GetAll()).ToList();
+            List<T> idioms = (await GetAllAsync()).ToList();
             idioms.RemoveAll(x => GetId(x) == id);
-            UpdateSource(idioms);
+            await UpdateSourceAsync(idioms);
         }
 
-        protected async void UpdateSource(IEnumerable<T> items)
+        protected async Task UpdateSourceAsync(IEnumerable<T> items)
         {
             using FileStream fs = File.Open(JsonFileName, FileMode.Create);
             var options = new JsonSerializerOptions

@@ -14,22 +14,26 @@ namespace QuizinatorInfrastructure.Services
 {
     public class IdiomsJsonFileService : JsonFileService<Idiom>
     {
-        protected readonly new string JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json";
+        //ctor
+        public IdiomsJsonFileService()
+        {
+            this.JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json";
+        }
 
         protected override Guid GetId(Idiom idiom)
         {
             return idiom.IdiomId;
         }
 
-        protected override Idiom AddIdToItem(Idiom newItem)
+        protected override Idiom AddIdToNewItem(Idiom newItem)
         {
             newItem.IdiomId = Guid.NewGuid();
             return newItem;
         }
 
-        public async override void AddRating(Guid idiomId, int rating)
+        public async override Task AddRatingAsync(Guid idiomId, int rating)
         {
-            IEnumerable<Idiom> idioms = await GetAll();
+            IEnumerable<Idiom> idioms = await GetAllAsync();
 
             Idiom idiom = idioms.First(x => GetId(x) == idiomId);
 
@@ -44,7 +48,7 @@ namespace QuizinatorInfrastructure.Services
                 idiom.Ratings = ratings.ToArray();
             }
 
-            UpdateSource(idioms);
+            await UpdateSourceAsync(idioms);
         }
     }
 }

@@ -14,29 +14,19 @@ using QuizinatorCore.Entities.Idioms;
 
 namespace QuizinatorUI.Controllers
 {
-    public class IdiomsController : Controller
+    public class IdiomsController : ControllerWithAsync<Idiom>
     {
-        private readonly IDatabaseService<Idiom> idiomsService;
-        private readonly FileConverter fileConverter;
-        private readonly ISorter<Idiom> sorter;
-
-        //ctor
-        public IdiomsController(IDatabaseService<Idiom> idiomsService, FileConverter fileConverter, ISorter<Idiom> idiomsSorter)
+        public IdiomsController(IDatabaseService<Idiom> dbService, FileConverter fileConverter, ISorter<Idiom> idiomSorter)
+            : base(dbService, fileConverter, idiomSorter)
         {
-            this.idiomsService = idiomsService;
-            this.fileConverter = fileConverter;
-            this.sorter = idiomsSorter;
         }
 
-        public async Task<ActionResult> Index(string sortOrder, string searchString)
+        protected override Guid GetId(Idiom x)
         {
-            IEnumerable<Idiom> idioms = await idiomsService.GetAll();
-            idioms = sorter.FilterAndSort(sortOrder, searchString, idioms);
-            ViewData = SetSortandSearchViewParams(sortOrder, searchString, ViewData);
-            return View(idioms);
+            return x.IdiomId;
         }
 
-        private ViewDataDictionary SetSortandSearchViewParams(string sortOrder, string searchString, ViewDataDictionary ViewData)
+        protected override ViewDataDictionary SetSortandSearchViewParams(string sortOrder, string searchString, ViewDataDictionary ViewData)
         {
             ViewData["WordSortParm"] = (sortOrder == "word_asc") ? "word_desc" : "word_asc";
             ViewData["SentenceSortParm"] = (sortOrder == "sentence_asc") ? "sentence_desc" : "sentence_asc";
@@ -44,108 +34,6 @@ namespace QuizinatorUI.Controllers
             ViewData["UnitSortParm"] = (sortOrder == "unit_asc") ? "unit_desc" : "unit_asc";
             ViewData["CurrentFilter"] = searchString;
             return ViewData;
-        }
-
-        public async Task<IEnumerable<Idiom>> Json()
-        {
-            return await idiomsService.GetAll();
-        }
-
-        public async Task<ActionResult> Details(Guid id)
-        {
-            Idiom idiom = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
-            return View(idiom);
-        }
-
-        // (should be POST?)
-        public ActionResult SubmitRating(Guid id, int rating)
-        {
-            idiomsService.AddRating(id, rating);
-            return RedirectToAction(nameof(Details), new { id });
-        }
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Idiom newIdiom)
-        {
-            if (ModelState.IsValid)
-            {
-                idiomsService.Add(newIdiom);
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        public async Task<ActionResult> Edit(Guid id)
-        {
-            Idiom idiom = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
-            return View(idiom);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id, Idiom updatedIdiom)
-        {
-            try
-            {
-                idiomsService.Replace(updatedIdiom);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                // report error
-                return View();
-            }
-        }
-
-        public async Task<ActionResult> Delete(Guid id)
-        {
-            Idiom model = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
-            return View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, IFormCollection collection)
-        {
-            try
-            {
-                idiomsService.Delete(id);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        public ActionResult Import()
-        {
-            return View(new ImportFileViewModel());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Import(ImportFileViewModel model)
-        {
-            try
-            {
-                Idiom[] newIdioms = fileConverter.ConvertFileToObjects<Idiom>(model.MyFile);
-                idiomsService.AddMultiple(newIdioms);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }
