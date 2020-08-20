@@ -77,7 +77,7 @@ namespace MockUI
 
         public async void ShowList(string sortOrder = null, string searchString = null)
         {
-            IEnumerable<Idiom> idioms = await idiomsService.GetAll();
+            IEnumerable<Idiom> idioms = await idiomsService.GetAllAsync();
             idioms = sorter.FilterAndSort(sortOrder, searchString, idioms);
             foreach (Idiom idiom in idioms)
             {
@@ -94,7 +94,7 @@ namespace MockUI
 
         public async void ShowIdiom(Guid id)
         {
-            Idiom idiom = (await idiomsService.GetAll()).First(x => x.IdiomId == id);
+            Idiom idiom = (await idiomsService.GetAllAsync()).First(x => x.IdiomId == id);
             Console.WriteLine(idiom);
         }
 

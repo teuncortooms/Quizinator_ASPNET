@@ -80,7 +80,7 @@ namespace MockUI
 
         public async void ShowList(string sortOrder = null, string searchString = null)
         {
-            IEnumerable<Quiz> quizzes = await quizzesService.GetAll();
+            IEnumerable<Quiz> quizzes = await quizzesService.GetAllAsync();
             quizzes = sorter.FilterAndSort(sortOrder, searchString, quizzes);
             foreach (Quiz quiz in quizzes)
             {
@@ -97,7 +97,7 @@ namespace MockUI
 
         public async void ShowQuiz(Guid id)
         {
-            Quiz quiz = (await quizzesService.GetAll()).First(x => x.QuizId == id);
+            Quiz quiz = (await quizzesService.GetAllAsync()).First(x => x.QuizId == id);
             Console.WriteLine(quiz.GetDetails());
         }
 
@@ -112,7 +112,7 @@ namespace MockUI
             Console.WriteLine("Title: ");
             string title = Console.ReadLine();
             MapperConfiguration mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<Idiom, IdiomInCollection>());
-            List<Idiom> idioms = (await idiomsService.GetAll()).ToList();
+            List<Idiom> idioms = (await idiomsService.GetAllAsync()).ToList();
             this.Add(new Quiz(title, new ExerciseFactory(), new Randomizer(), mapperConfig, idioms));
         }
 
