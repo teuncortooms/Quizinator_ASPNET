@@ -28,22 +28,22 @@
         <thead class="thead-light">
             <tr class="row">
                 <th class="col-sm-2">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["WordSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["WordSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         @Html.DisplayNameFor(model => model.Word)
                     </a>
                 </th>
                 <th class="col-sm-6">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["SentenceSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["SentenceSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         @Html.DisplayNameFor(model => model.Sentence)
                     </a>
                 </th>
                 <th class="col-sm-2">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TranslationSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TranslationSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         @Html.DisplayNameFor(model => model.Translation)
                     </a>
                 </th>
                 <th class="col-sm-1">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["UnitSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["UnitSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         @Html.DisplayNameFor(model => model.Unit)
                     </a>
                 </th>
@@ -54,18 +54,18 @@
             @foreach (Idiom idiom in Model)
             {
                 <tr class="row">
-                    <td class="col-sm-2">
-                        @Html.DisplayFor(modelItem => idiom.Word)
-                    </td>
-                    <td class="col-sm-6">
-                        @Html.DisplayFor(modelItem => idiom.Sentence)
-                    </td>
-                    <td class="col-sm-2">
-                        @Html.DisplayFor(modelItem => idiom.Translation)
-                    </td>
-                    <td class="col-sm-1">
-                        @Html.DisplayFor(modelItem => idiom.Unit)
-                    </td>
+                        <td class="col-sm-2">
+                            @Html.DisplayFor(modelItem => idiom.Word)
+                        </td>
+                        <td class="col-sm-6">
+                            @Html.DisplayFor(modelItem => idiom.Sentence)
+                        </td>
+                        <td class="col-sm-2">
+                            @Html.DisplayFor(modelItem => idiom.Translation)
+                        </td>
+                        <td class="col-sm-1">
+                            @Html.DisplayFor(modelItem => idiom.Unit)
+                        </td>
                     <td class="col-sm-1">
                         <a asp-action="Edit" asp-route-id=@idiom.IdiomId><i class="fas fa-edit"></i></a>
                         <a asp-action="Details" asp-route-id=@idiom.IdiomId><i class="fas fa-info-circle"></i></a>

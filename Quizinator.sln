@@ -5,15 +5,15 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorUI", "QuizinatorUI\QuizinatorUI.csproj", "{AE0B28B6-34E1-4912-A784-203D514AF348}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorTests", "QuizinatorTests\QuizinatorTests.csproj", "{A439ABF3-22B0-4578-8595-F2C7F348A6E0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorCore", "QuizinatorCore\QuizinatorCore.csproj", "{0BB2855D-E754-4DCA-9CC7-2A6934A57358}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizinatorInfrastructure", "QuizinatorInfrastructure\QuizinatorInfrastructure.csproj", "{B0B20E1E-32F2-41E0-92F8-630FFFDCC4E5}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Data", "Data\Data.shproj", "{2BF5AFF7-4E52-4CC3-9719-E6133CD36B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockUI", "MockUI\MockUI.csproj", "{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockUI", "MockUI\MockUI.csproj", "{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizinatorTests", "QuizinatorTests\QuizinatorTests.csproj", "{F67ACBAB-37EE-47FF-A11D-DBCF82B4FDE2}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -28,10 +28,6 @@ Global
 		{AE0B28B6-34E1-4912-A784-203D514AF348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE0B28B6-34E1-4912-A784-203D514AF348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE0B28B6-34E1-4912-A784-203D514AF348}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A439ABF3-22B0-4578-8595-F2C7F348A6E0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB2855D-E754-4DCA-9CC7-2A6934A57358}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCD89066-E24F-4CA1-871F-4DA525ACD4B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F67ACBAB-37EE-47FF-A11D-DBCF82B4FDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F67ACBAB-37EE-47FF-A11D-DBCF82B4FDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F67ACBAB-37EE-47FF-A11D-DBCF82B4FDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F67ACBAB-37EE-47FF-A11D-DBCF82B4FDE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

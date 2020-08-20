@@ -13,4 +13,8 @@
     <ProjectReference Include="..\QuizinatorInfrastructure\QuizinatorInfrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Quizzes\Create\" />
+  </ItemGroup>
+
 </Project>

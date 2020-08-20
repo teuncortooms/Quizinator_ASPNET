@@ -1,4 +1,6 @@
-﻿@model QuizinatorCore.Entities.Quiz
+﻿@using QuizinatorCore.Entities.Exercises
+@using QuizinatorCore.Entities.Questions
+@model QuizinatorCore.Entities.Quiz
 
 @{
     ViewData["Title"] = "Details";
@@ -10,21 +12,80 @@
     <h4>Quiz</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.QuizId)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.QuizId)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
+        <dt class="col-sm-2">
+            Number of exercises
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exercises.Count)
+        </dd>
+        <dt class="col-sm-2">
+            Collection Size
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdiomsCollection.Count)
+        </dd>
     </dl>
+    <hr />
 </div>
 
+<div>
+    <h4>
+        @Html.DisplayFor(model => model.Title)
+    </h4>
+    @{
+        int exerciseCount = 1;
+        foreach (Exercise exercise in Model.Exercises)
+        {
+            <div>
+                <h5>
+                    Exercise @(exerciseCount++)) @Html.DisplayFor(modelItem => exercise.Description)
+                </h5>
+            </div>
+            <div class="container">
+                <table class="table table-hover">
+                    <tbody>
+                        @{
+                            int questionCount = 1;
+                            foreach (Question question in exercise.Questions)
+                            {
+                                <tr class="row">
+                                    <td class="col-sm-1">
+                                        @(questionCount++).
+                                    </td>
+                                    <td class="col-sm-6">
+                                        @Html.DisplayFor(modelItem => question.QuestionText)
+                                    </td>
+                                    <td class="col-sm-1"></td>
+                                    <td class="col-sm-2">
+                                        @Html.DisplayFor(modelItem => question.AnswerText)
+                                    </td>
+                                    <td class="col-sm-1"></td>
+                                    <td class="col-sm-1">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-info-circle"></i>
+                                        <i class="fas fa-trash"></i>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+</div>
 
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.QuizId }) |

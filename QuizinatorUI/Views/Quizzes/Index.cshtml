@@ -28,17 +28,17 @@
         <thead class="thead-light">
             <tr class="row">
                 <th class="col-sm-3">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         @Html.DisplayNameFor(model => model.Title)
                     </a>
                 </th>
                 <th class="col-sm-3">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["ExercisesSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["ExercisesSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         Number of exercises
                     </a>
                 </th>
                 <th class="col-sm-3">
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CollectionSizeSortParm"]">
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CollectionSizeSortParm"]" asp-route-searchString="@ViewData["currentFilter"]">
                         Collection Size
                     </a>
                 </th>
