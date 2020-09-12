@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using QuizinatorCore.Services;
 using QuizinatorCore.Interfaces;
 
-namespace QuizinatorInfrastructure.Services
+namespace QuizinatorInfrastructure.Repositories
 {
-    public abstract class JsonFileService<T> : IDatabaseService<T>
+    public abstract class JsonFileRepository<T> : IRepository<T>
     {
         protected string JsonFileName;
 

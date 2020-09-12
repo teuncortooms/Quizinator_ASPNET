@@ -17,12 +17,17 @@ namespace QuizinatorUI.Controllers
 {
     public class QuizzesController : ControllerWithAsync<Quiz>
     {
-        private readonly IDatabaseService<Idiom> idiomsDbService;
+        private readonly IRepository<Idiom> idiomsRepository;
 
-        public QuizzesController(IDatabaseService<Quiz> dbService, FileConverter fileConverter, ISorter<Quiz> idiomSorter, IDatabaseService<Idiom> idiomsDbService)
-            : base(dbService, fileConverter, idiomSorter)
+        public QuizzesController(
+            IRepository<Quiz> quizzesRepository,
+            FileConverter fileConverter,
+            ISorter<Quiz> idiomSorter,
+            IRepository<Idiom> idiomsRepository
+            )
+            : base(quizzesRepository, fileConverter, idiomSorter)
         {
-            this.idiomsDbService = idiomsDbService;
+            this.idiomsRepository = idiomsRepository;
         }
 
         protected override Guid GetId(Quiz x)
@@ -30,7 +35,8 @@ namespace QuizinatorUI.Controllers
             return x.QuizId;
         }
 
-        protected override ViewDataDictionary SetSortandSearchViewParams(string sortOrder, string searchString, ViewDataDictionary ViewData)
+        protected override ViewDataDictionary SetSortandSearchViewParams(
+            string sortOrder, string searchString, ViewDataDictionary ViewData)
         {
             ViewData["TitleSortParm"] = (sortOrder == "title_asc") ? "title_desc" : "title_asc";
             ViewData["ExercisesSortParm"] = (sortOrder == "exercises_asc") ? "exercises_desc" : "exercises_asc";
@@ -45,7 +51,7 @@ namespace QuizinatorUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<Idiom> idioms = (await idiomsDbService.GetAllAsync()).ToList();
+                List<Idiom> idioms = (await idiomsRepository.GetAllAsync()).ToList();
                 MapperConfiguration mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<Idiom, IdiomInCollection>());
 
                 Quiz newQuiz = new Quiz(model.Title, new ExerciseFactory(), new Randomizer(), mapperConfig, idioms);

@@ -10,12 +10,12 @@ using QuizinatorCore.Services;
 using QuizinatorCore.Interfaces;
 using QuizinatorCore.Entities.Idioms;
 
-namespace QuizinatorInfrastructure.Services
+namespace QuizinatorInfrastructure.Repositories
 {
-    public class IdiomsJsonFileService : JsonFileService<Idiom>
+    public class IdiomsRepository : JsonFileRepository<Idiom>
     {
         //ctor
-        public IdiomsJsonFileService()
+        public IdiomsRepository()
         {
             this.JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\idioms.json";
         }

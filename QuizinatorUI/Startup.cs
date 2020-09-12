@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using QuizinatorInfrastructure.Services;
+using QuizinatorInfrastructure.Repositories;
 
 namespace QuizinatorUI
 {
@@ -29,8 +29,8 @@ namespace QuizinatorUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IDatabaseService<Idiom>, IdiomsJsonFileService>();
-            services.AddTransient<IDatabaseService<Quiz>, QuizzesJsonFileService>();
+            services.AddTransient<IRepository<Idiom>, IdiomsRepository>();
+            services.AddTransient<IRepository<Quiz>, QuizzesRepository>();
             services.AddTransient<FileConverter>();
             services.AddTransient<ISorter<Idiom>, IdiomSorter>();
             services.AddTransient<ISorter<Quiz>, QuizSorter>();

@@ -8,12 +8,12 @@ using System.Text.Json;
 using QuizinatorCore.Services;
 using System.Threading.Tasks;
 
-namespace QuizinatorInfrastructure.Services
+namespace QuizinatorInfrastructure.Repositories
 {
-    public class QuizzesJsonFileService : JsonFileService<Quiz>
+    public class QuizzesRepository : JsonFileRepository<Quiz>
     {
         //ctor
-        public QuizzesJsonFileService()
+        public QuizzesRepository()
         {
             this.JsonFileName = @"C:\Users\884573\Documents\Repositories\Quizinator_ASPNET\Data\quizzes.json";
         }

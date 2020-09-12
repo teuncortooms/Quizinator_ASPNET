@@ -12,13 +12,13 @@ namespace MockUI
 {
     class QuizActions
     {
-        private readonly IDatabaseService<Quiz> quizzesService;
-        private readonly IDatabaseService<Idiom> idiomsService;
+        private readonly IRepository<Quiz> quizzesService;
+        private readonly IRepository<Idiom> idiomsService;
         private readonly ISorter<Quiz> sorter;
         private bool isCanceled;
 
         //ctor
-        public QuizActions(IDatabaseService<Quiz> quizzesService, IDatabaseService<Idiom> idiomsService, ISorter<Quiz> sorter)
+        public QuizActions(IRepository<Quiz> quizzesService, IRepository<Idiom> idiomsService, ISorter<Quiz> sorter)
         {
             this.quizzesService = quizzesService;
             this.idiomsService = idiomsService;

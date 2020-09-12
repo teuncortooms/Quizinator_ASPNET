@@ -11,12 +11,12 @@ namespace MockUI
 {
     class IdiomActions
     {
-        private readonly IDatabaseService<Idiom> idiomsService;
+        private readonly IRepository<Idiom> idiomsService;
         private readonly ISorter<Idiom> sorter;
         private bool isCanceled;
 
         //ctor
-        public IdiomActions(IDatabaseService<Idiom> idiomsService, ISorter<Idiom> idiomsSorter)
+        public IdiomActions(IRepository<Idiom> idiomsService, ISorter<Idiom> idiomsSorter)
         {
             this.idiomsService = idiomsService;
             this.sorter = idiomsSorter;

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace QuizinatorCore.Interfaces
 {
-    public interface IDatabaseService<T>
+    public interface IRepository<T>
     {
         public Task<IEnumerable<T>> GetAllAsync();
         public Task AddAsync(T item);

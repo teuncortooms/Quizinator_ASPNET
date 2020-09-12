@@ -1,6 +1,6 @@
 ﻿using QuizinatorCore.Entities;
 using QuizinatorCore.Services;
-using QuizinatorInfrastructure.Services;
+using QuizinatorInfrastructure.Repositories;
 using System;
 
 namespace MockUI
@@ -9,8 +9,8 @@ namespace MockUI
     {
         static void Main(string[] args)
         {
-            IdiomsJsonFileService idiomsService = new IdiomsJsonFileService();
-            QuizzesJsonFileService quizzesService = new QuizzesJsonFileService();
+            IdiomsRepository idiomsService = new IdiomsRepository();
+            QuizzesRepository quizzesService = new QuizzesRepository();
             IdiomActions idiomActions = new IdiomActions(idiomsService, new IdiomSorter());
             QuizActions quizActions = new QuizActions(quizzesService, idiomsService, new QuizSorter());
 

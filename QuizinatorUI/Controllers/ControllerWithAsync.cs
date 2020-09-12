@@ -14,14 +14,14 @@ namespace QuizinatorUI.Controllers
 {
     public abstract class ControllerWithAsync<T> : Controller
     {
-        protected readonly IDatabaseService<T> dbService;
+        protected readonly IRepository<T> dbService;
         protected readonly FileConverter fileConverter;
         protected readonly ISorter<T> sorter;
 
         //ctor
-        public ControllerWithAsync(IDatabaseService<T> dbService, FileConverter fileConverter, ISorter<T> idiomSorter)
+        public ControllerWithAsync(IRepository<T> repository, FileConverter fileConverter, ISorter<T> idiomSorter)
         {
-            this.dbService = dbService;
+            this.dbService = repository;
             this.fileConverter = fileConverter;
             this.sorter = idiomSorter;
         }

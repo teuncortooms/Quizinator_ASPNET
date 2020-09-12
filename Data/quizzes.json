@@ -2960,5 +2960,541 @@
       }
     ],
     "Ratings": null
+  },
+  {
+    "QuizId": "422fd8e7-6c42-41bc-a096-8570d9ad824a",
+    "Title": "test3",
+    "Exercises": [
+      {
+        "ExerciseId": "49d04496-e2e4-43f4-9100-55394bf2e99c",
+        "Type": 0,
+        "Description": "Translate the underlined words into Dutch.",
+        "Questions": [
+          {
+            "QuestionId": "d766d99e-5c2f-4ed3-a583-d10a690b82d8",
+            "IdiomId": "7fd3aa01-0f7d-4295-8991-07d7dd6a5944",
+            "QuestionText": "I really want to see that movie. Did you buy tickets for the cinema tonight? (cinema)",
+            "AnswerText": "bioscoop1"
+          },
+          {
+            "QuestionId": "2df1a2ee-88fe-48c2-81c9-f5c7871c57ad",
+            "IdiomId": "c3f87f13-e1b2-44dc-848a-97078f3e74eb",
+            "QuestionText": "Excuse me, sir, could you help me find my brain? (Excuse me)",
+            "AnswerText": "beleefdsheidsuitdrukking1"
+          },
+          {
+            "QuestionId": "2d03b732-a675-41f8-a12e-a00e83a24c85",
+            "IdiomId": "17616c14-ea67-4001-8cc5-8ff801d23784",
+            "QuestionText": "A chicken slurps grass like spaghetti. Yes, you read that right! (chicken)",
+            "AnswerText": "kip"
+          },
+          {
+            "QuestionId": "9a65dd96-1de8-403e-8db8-874f08d8df29",
+            "IdiomId": "e145bcbd-7810-4725-b08d-600487a2a868",
+            "QuestionText": "It\u0027s fun to learn about foreign cultures. (foreign)",
+            "AnswerText": "vreemd/buitendlands"
+          },
+          {
+            "QuestionId": "2806a22c-1211-461e-872c-afa23b9621fc",
+            "IdiomId": "24880fe0-6b23-4459-a7dd-31f30a42cc02",
+            "QuestionText": "The teacher has given us an exercise to do for homework. (exercise)",
+            "AnswerText": "oefening"
+          }
+        ]
+      },
+      {
+        "ExerciseId": "4f6324fb-fd81-4e0d-97bf-1faa91b26248",
+        "Type": 1,
+        "Description": "Complete the sentences with words from the box. Translate the words into English.",
+        "Questions": [
+          {
+            "QuestionId": "96bbdda1-0f5e-4475-9692-1100d4169fea",
+            "IdiomId": "391368ce-fc32-4b57-912b-c9e83fdc0ae1",
+            "QuestionText": "kleine",
+            "AnswerText": "little"
+          },
+          {
+            "QuestionId": "63b7dbcc-7b1a-426f-8833-84f2b293f286",
+            "IdiomId": "2ef0a7c3-2261-451b-a4c3-f021c22c378a",
+            "QuestionText": "asdfasd",
+            "AnswerText": "asdfasdf"
+          },
+          {
+            "QuestionId": "71a5dbd4-5da5-4b4c-baf8-72158fc0c713",
+            "IdiomId": "58069e4c-70a2-42ba-b274-4ed6622d5eed",
+            "QuestionText": "I should get up earlier, because I am ________ late.",
+            "AnswerText": "always"
+          },
+          {
+            "QuestionId": "3627ebfe-d725-48e0-90d2-322d0252ff74",
+            "IdiomId": "6a450372-2fff-4932-82a8-e478d0a6f0b1",
+            "QuestionText": "What is your name?",
+            "AnswerText": "what pron"
+          },
+          {
+            "QuestionId": "907d2016-400a-4107-ab95-167e1f230e95",
+            "IdiomId": "6baec35f-ec93-4104-8cf4-14afaaae2b31",
+            "QuestionText": "My dad says he wants to go ________ with me, but I don\u2019t want to go outside.",
+            "AnswerText": "cycling"
+          }
+        ]
+      },
+      {
+        "ExerciseId": "97921771-4965-407c-a241-c689be012b42",
+        "Type": 2,
+        "Description": "Translate the word to complete the sentence.",
+        "Questions": [
+          {
+            "QuestionId": "968ea5da-d3c9-46be-b6cf-d78dbb161a68",
+            "IdiomId": "49c5390a-c031-42ee-bea6-aa9ed348b207",
+            "QuestionText": "If you\u2019re ________ and you know it clap your hands. (blij)",
+            "AnswerText": "happy"
+          },
+          {
+            "QuestionId": "975dd7c1-739f-44c3-bc30-5f0a547eedb6",
+            "IdiomId": "e28e3663-11f3-42c2-82c0-ce20114238d0",
+            "QuestionText": "I fight with my brother very ________ - almost every day, in fact. (vaak)",
+            "AnswerText": "often"
+          },
+          {
+            "QuestionId": "02c25dd6-21a6-4b99-8b1c-ff09780d039f",
+            "IdiomId": "9f00f8c7-e0e0-4f44-a281-15e6bc97240e",
+            "QuestionText": "You should do your homework as soon as you can, so you don\u2019t ________ it too late. (klaar zijn met)",
+            "AnswerText": "finish"
+          },
+          {
+            "QuestionId": "c26567cf-7c2c-4a1b-a2fe-6b9a8452eefb",
+            "IdiomId": "fea4d35b-8a54-4e0b-93be-d04f8066db57",
+            "QuestionText": "I hate loud ________, but I love soft rock. (muziek)",
+            "AnswerText": "music"
+          },
+          {
+            "QuestionId": "d7e2d391-0960-469f-9847-0900616c6973",
+            "IdiomId": "05205560-9ba0-4439-852a-04bff6a1234c",
+            "QuestionText": "The child should be kept away from ________ movies. (wellustig)",
+            "AnswerText": "libidinous"
+          }
+        ]
+      },
+      {
+        "ExerciseId": "00aa0e69-db4d-4a34-b791-76debacf5d8c",
+        "Type": 3,
+        "Description": "Translate the words into Dutch.",
+        "Questions": [
+          {
+            "QuestionId": "25a7a7b5-fc9c-47c8-af93-b1b564c77060",
+            "IdiomId": "33224159-4069-467d-9aea-17d2fd3be92e",
+            "QuestionText": "surname n",
+            "AnswerText": "achternaam"
+          },
+          {
+            "QuestionId": "d09d6162-84f4-4137-818f-7863261675d8",
+            "IdiomId": "125e0bfd-94fd-4f8c-b051-4bbdc4adbd19",
+            "QuestionText": "testword",
+            "AnswerText": "testtranslation"
+          },
+          {
+            "QuestionId": "95efe2c6-2873-4364-9caf-32e253220724",
+            "IdiomId": "a94dfc6c-f719-4130-9752-912d98227d68",
+            "QuestionText": "bath",
+            "AnswerText": "bad64"
+          },
+          {
+            "QuestionId": "2b81eb8a-680f-4d18-acef-983ea08c41c9",
+            "IdiomId": "1656455a-8560-4222-ac7c-acde5226e678",
+            "QuestionText": "listen",
+            "AnswerText": "luisteren"
+          },
+          {
+            "QuestionId": "f91f8699-90c4-4c52-8c6a-189047d2c405",
+            "IdiomId": "d5d2a3d1-92f2-4d3f-8a99-bfd441634fbd",
+            "QuestionText": "holiday",
+            "AnswerText": "vakantie"
+          }
+        ]
+      },
+      {
+        "ExerciseId": "c5e77384-580c-47a8-a46e-4e97712b3198",
+        "Type": 4,
+        "Description": "Translate the words into English.",
+        "Questions": [
+          {
+            "QuestionId": "92a7e3a5-16d4-4bc3-a8f3-f2900cc669d5",
+            "IdiomId": "2896e95b-4630-486a-af0b-27549a6dc8dd",
+            "QuestionText": "feestvreugde",
+            "AnswerText": "revelry"
+          },
+          {
+            "QuestionId": "3e88c3a0-b7eb-4332-a61a-a93ac66a9de9",
+            "IdiomId": "07036cce-d83b-4770-83c4-5232294cc9c4",
+            "QuestionText": "donderdag",
+            "AnswerText": "Thursday"
+          },
+          {
+            "QuestionId": "2ac36fa6-641a-42e2-a644-590ae654f7a0",
+            "IdiomId": "73ec3e9c-137c-4c51-8902-f7d09de730d1",
+            "QuestionText": "genieten",
+            "AnswerText": "enjoy"
+          },
+          {
+            "QuestionId": "8d7300e1-fe70-4d06-bb68-9479b81b69aa",
+            "IdiomId": "782106ca-556a-465a-b56c-7d6130ec3ec8",
+            "QuestionText": "avond456",
+            "AnswerText": "evening"
+          },
+          {
+            "QuestionId": "a84a5fa1-ec6b-4645-93d1-d4f71ed8ae1f",
+            "IdiomId": "16b06003-07b9-4fa0-97ea-7f7c93461b5e",
+            "QuestionText": "afhaalmaaltijd",
+            "AnswerText": "takeaway"
+          }
+        ]
+      }
+    ],
+    "IdiomsCollection": [
+      {
+        "IsAvailable": false,
+        "IdiomId": "33224159-4069-467d-9aea-17d2fd3be92e",
+        "Word": "surname n",
+        "exampleSentence": "What is your surname?",
+        "Translation": "achternaam",
+        "Unit": "Unit 34",
+        "Ratings": [
+          3,
+          5
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "6a450372-2fff-4932-82a8-e478d0a6f0b1",
+        "Word": "what pron",
+        "exampleSentence": "What is your name?",
+        "Translation": "wat",
+        "Unit": "Unit 3",
+        "Ratings": [
+          3
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "c3f87f13-e1b2-44dc-848a-97078f3e74eb",
+        "Word": "Excuse me",
+        "exampleSentence": "Excuse me, sir, could you help me find my brain?",
+        "Translation": "beleefdsheidsuitdrukking1",
+        "Unit": "Unit 3",
+        "Ratings": [
+          4
+        ]
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "0f82eead-d04d-4d1b-af26-c0da66d0b3b2",
+        "Word": "flowers",
+        "exampleSentence": "Let me tell you about the birds and the bees, and the flowers and the trees.",
+        "Translation": "bloemen12",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "782106ca-556a-465a-b56c-7d6130ec3ec8",
+        "Word": "evening",
+        "exampleSentence": "I pack my bag in the evening, so I don\u2019t need to in the morning.",
+        "Translation": "avond456",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "49c5390a-c031-42ee-bea6-aa9ed348b207",
+        "Word": "happy",
+        "exampleSentence": "If you\u2019re happy and you know it clap your hands.",
+        "Translation": "blij",
+        "Unit": "Unit 3",
+        "Ratings": [
+          3
+        ]
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "3bc27127-a4bc-4fff-9419-f370b1f0a8d8",
+        "Word": "Wednesday",
+        "exampleSentence": "I met my new best friend in the city centre last Wednesday.",
+        "Translation": "woensdag",
+        "Unit": "Unit 3",
+        "Ratings": [
+          5
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "58069e4c-70a2-42ba-b274-4ed6622d5eed",
+        "Word": "always",
+        "exampleSentence": "I should get up earlier, because I am always late.",
+        "Translation": "altijd123",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "391368ce-fc32-4b57-912b-c9e83fdc0ae1",
+        "Word": "little",
+        "exampleSentence": "kleine",
+        "Translation": "kleine12",
+        "Unit": "Unit 345",
+        "Ratings": [
+          5
+        ]
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "81ce33c0-569a-4524-939c-0fd29194d0af",
+        "Word": "swimming",
+        "exampleSentence": "I love to go swimming, because I\u2019m too sexy for sports that need clothes.",
+        "Translation": "zwemmen56",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "6baec35f-ec93-4104-8cf4-14afaaae2b31",
+        "Word": "cycling",
+        "exampleSentence": "My dad says he wants to go cycling with me, but I don\u2019t want to go outside.",
+        "Translation": "fietsen",
+        "Unit": "Unit 3",
+        "Ratings": [
+          3,
+          5,
+          1,
+          5
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "a94dfc6c-f719-4130-9752-912d98227d68",
+        "Word": "bath",
+        "exampleSentence": "If you put a frog in a pot and slowly turn up the heat, it will enjoy the nice warm bath until it is cooked to death.",
+        "Translation": "bad64",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "9f00f8c7-e0e0-4f44-a281-15e6bc97240e",
+        "Word": "finish",
+        "exampleSentence": "You should do your homework as soon as you can, so you don\u2019t finish it too late.",
+        "Translation": "klaar zijn met",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "1656455a-8560-4222-ac7c-acde5226e678",
+        "Word": "listen",
+        "exampleSentence": "Talk to the hand! I won\u2019t listen.",
+        "Translation": "luisteren",
+        "Unit": "Unit 34",
+        "Ratings": [
+          2,
+          4
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "17616c14-ea67-4001-8cc5-8ff801d23784",
+        "Word": "chicken",
+        "exampleSentence": "A chicken slurps grass like spaghetti. Yes, you read that right!",
+        "Translation": "kip",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "e145bcbd-7810-4725-b08d-600487a2a868",
+        "Word": "foreign",
+        "exampleSentence": "It\u0027s fun to learn about foreign cultures.",
+        "Translation": "vreemd/buitendlands",
+        "Unit": "Unit 3",
+        "Ratings": [
+          4
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "16b06003-07b9-4fa0-97ea-7f7c93461b5e",
+        "Word": "takeaway",
+        "exampleSentence": "If I can\u2019t be bothered cooking, I send out for a takeaway.",
+        "Translation": "afhaalmaaltijd",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "07036cce-d83b-4770-83c4-5232294cc9c4",
+        "Word": "Thursday",
+        "exampleSentence": "On Thursday, it is my job to do the dishes.",
+        "Translation": "donderdag",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "24880fe0-6b23-4459-a7dd-31f30a42cc02",
+        "Word": "exercise",
+        "exampleSentence": "The teacher has given us an exercise to do for homework.",
+        "Translation": "oefening",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "7fd3aa01-0f7d-4295-8991-07d7dd6a5944",
+        "Word": "cinema",
+        "exampleSentence": "I really want to see that movie. Did you buy tickets for the cinema tonight?",
+        "Translation": "bioscoop1",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "243ccf59-1ede-4142-9669-4cdbe2b3edf4",
+        "Word": "cook",
+        "exampleSentence": "My father usually prepares dinner, but sometimes my mother and I cook.",
+        "Translation": "koken",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "e28e3663-11f3-42c2-82c0-ce20114238d0",
+        "Word": "often",
+        "exampleSentence": "I fight with my brother very often - almost every day, in fact.",
+        "Translation": "vaak",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "fea4d35b-8a54-4e0b-93be-d04f8066db57",
+        "Word": "music",
+        "exampleSentence": "I hate loud music, but I love soft rock.",
+        "Translation": "muziek",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "d5d2a3d1-92f2-4d3f-8a99-bfd441634fbd",
+        "Word": "holiday",
+        "exampleSentence": "The beaches are busy in August because everyone is on holiday then.",
+        "Translation": "vakantie",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "73ec3e9c-137c-4c51-8902-f7d09de730d1",
+        "Word": "enjoy",
+        "exampleSentence": "It\u2019s nice to do tests. I really enjoy the silence.",
+        "Translation": "genieten",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "9f6ac52d-2f94-457f-b89d-e716f883fa63",
+        "Word": "competence",
+        "exampleSentence": "I regard him as a man of integrity and high professional competence.",
+        "Translation": "compententie",
+        "Unit": "Unit 3",
+        "Ratings": [
+          4,
+          5,
+          1,
+          1
+        ]
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "a22537ff-c41e-4804-91f4-d1edd4a0facd",
+        "Word": "compendium",
+        "exampleSentence": "His book is a delightful compendium of important questions.",
+        "Translation": "compendium",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "83c6b4da-0b38-46c4-be8f-d2397388ab6e",
+        "Word": "compassion",
+        "exampleSentence": "There is no need to show compassion for him.",
+        "Translation": "mededogen",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "05205560-9ba0-4439-852a-04bff6a1234c",
+        "Word": "libidinous",
+        "exampleSentence": "The child should be kept away from libidinous movies.",
+        "Translation": "wellustig",
+        "Unit": "Unit 3",
+        "Ratings": [
+          2,
+          4
+        ]
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "2896e95b-4630-486a-af0b-27549a6dc8dd",
+        "Word": "revelry",
+        "exampleSentence": "I called the police when my neighbours refused to settle down and end their revelry.",
+        "Translation": "feestvreugde",
+        "Unit": "Unit 3",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "2ef0a7c3-2261-451b-a4c3-f021c22c378a",
+        "Word": "asdfasdf",
+        "exampleSentence": "asdfasd",
+        "Translation": "asdfasd334561",
+        "Unit": "sdf",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": false,
+        "IdiomId": "125e0bfd-94fd-4f8c-b051-4bbdc4adbd19",
+        "Word": "testword",
+        "exampleSentence": "testsentence",
+        "Translation": "testtranslation",
+        "Unit": "testunit",
+        "Ratings": []
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "dc27c571-8d6b-4f6b-839d-4d248da14a41",
+        "Word": "test",
+        "exampleSentence": "What is your test?",
+        "Translation": "toets",
+        "Unit": "Unit 5",
+        "Ratings": [
+          3,
+          5
+        ]
+      },
+      {
+        "IsAvailable": true,
+        "IdiomId": "39f7d611-0573-4a16-8fc4-88c14ac53a1e",
+        "Word": "test2",
+        "exampleSentence": "What is your test2?",
+        "Translation": "toets2",
+        "Unit": "Unit 5",
+        "Ratings": [
+          3
+        ]
+      }
+    ],
+    "Ratings": null
   }
 ]

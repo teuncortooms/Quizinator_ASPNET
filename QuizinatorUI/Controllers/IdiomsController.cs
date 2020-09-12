@@ -16,8 +16,8 @@ namespace QuizinatorUI.Controllers
 {
     public class IdiomsController : ControllerWithAsync<Idiom>
     {
-        public IdiomsController(IDatabaseService<Idiom> dbService, FileConverter fileConverter, ISorter<Idiom> idiomSorter)
-            : base(dbService, fileConverter, idiomSorter)
+        public IdiomsController(IRepository<Idiom> repository, FileConverter fileConverter, ISorter<Idiom> idiomSorter)
+            : base(repository, fileConverter, idiomSorter)
         {
         }
 
