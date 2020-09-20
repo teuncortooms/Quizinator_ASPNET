@@ -29,7 +29,7 @@ namespace QuizinatorUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IRepository<Idiom>, IdiomsRepository>();
+            services.AddTransient<IRepository<Idiom>, IdiomsRepository>(); // TODO: dependency on DAL ok?!
             services.AddTransient<IRepository<Quiz>, QuizzesRepository>();
             services.AddTransient<FileConverter>();
             services.AddTransient<ISorter<Idiom>, IdiomSorter>();
