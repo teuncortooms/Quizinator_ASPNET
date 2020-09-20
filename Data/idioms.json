@@ -7,7 +7,8 @@
     "Unit": "Unit 34",
     "Ratings": [
       3,
-      5
+      5,
+      1
     ]
   },
   {
@@ -299,6 +300,35 @@
   },
   {
     "IdiomId": "39f7d611-0573-4a16-8fc4-88c14ac53a1e",
+    "Word": "test2",
+    "exampleSentence": "What is your test2?",
+    "Translation": "toets2",
+    "Unit": "Unit 5",
+    "Ratings": [
+      3
+    ]
+  },
+  {
+    "IdiomId": "bb66e6a6-3659-4c52-aeac-d1117811d915",
+    "Word": "werg",
+    "exampleSentence": "ewt",
+    "Translation": "we",
+    "Unit": "wet",
+    "Ratings": null
+  },
+  {
+    "IdiomId": "93d8bf7c-0d35-4db7-b3d5-5f540081ae9f",
+    "Word": "test",
+    "exampleSentence": "What is your test?",
+    "Translation": "toets",
+    "Unit": "Unit 5",
+    "Ratings": [
+      3,
+      5
+    ]
+  },
+  {
+    "IdiomId": "334190a3-1f58-4a06-93ee-c1c3e7c15c63",
     "Word": "test2",
     "exampleSentence": "What is your test2?",
     "Translation": "toets2",
