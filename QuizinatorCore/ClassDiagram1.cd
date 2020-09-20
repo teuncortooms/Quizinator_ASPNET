@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QuizinatorCore.Entities.Exercises.Exercise" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAgAAAEAAACAAAAEAAAAAAEASAEAAAAAAA=</HashCode>
+      <FileName>Entities\Exercises\Exercise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Exercises.ExerciseTypeB" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAAAAAAAAAAAAAAAAQQAAAAAAAAEAAAkAAAAAAA=</HashCode>
+      <FileName>Entities\Exercises\ExerciseTypeB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Idioms.Idiom" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAAAAIAAAGIgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Idioms\Idiom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Idioms.IdiomInCollection" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Entities\Idioms\IdiomInCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Questions.Question" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEgAAABAAAAAAABAAQAAACAAQAAAA=</HashCode>
+      <FileName>Entities\Questions\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Questions.QuestionTypeA" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entities\Questions\QuestionTypeA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Questions.QuestionTypeB" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAABAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entities\Questions\QuestionTypeB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Questions.QuestionTypeC" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entities\Questions\QuestionTypeC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Questions.QuestionTypeD" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entities\Questions\QuestionTypeD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Questions.QuestionTypeE" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entities\Questions\QuestionTypeE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Entities.Quiz" Collapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAAAAAAEAAECEBgEAAAEAIBAAAAEAAgAAAAAAAAg=</HashCode>
+      <FileName>Entities\Quiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Services.CoreServices" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CoreServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Services.ExerciseFactory" Collapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ExerciseFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Services.FileConverter" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\FileConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Services.IdiomSorter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAABIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IdiomSorter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="QuizinatorCore.Services.QuestionFactory" Collapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\QuestionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizinatorCore.Services.QuizSorter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAABIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\QuizSorter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="QuizinatorCore.Services.Randomizer" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Services\Randomizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="QuizinatorCore.Interfaces.IRepository&lt;T&gt;" Collapsed="true">
+    <Position X="17.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAgAAAAAAAAQAAAAAEAAAAAAAAAAAAAAEAAAIA=</HashCode>
+      <FileName>Interfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QuizinatorCore.Interfaces.ISorter&lt;T&gt;" Collapsed="true">
+    <Position X="19.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAABIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ISorter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="QuizinatorCore.Services.ExerciseType" Collapsed="true">
+    <Position X="17.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApgEAAAA=</HashCode>
+      <FileName>Services\ExerciseFactory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
