@@ -9,10 +9,10 @@ namespace MockUI
     {
         static void Main(string[] args)
         {
-            IdiomsRepository idiomsService = new IdiomsRepository();
-            QuizzesRepository quizzesService = new QuizzesRepository();
-            IdiomActions idiomActions = new IdiomActions(idiomsService, new IdiomSorter());
-            QuizActions quizActions = new QuizActions(quizzesService, idiomsService, new QuizSorter());
+            IdiomsRepository idiomsRepository = new IdiomsRepository();
+            QuizzesRepository quizzesRepository = new QuizzesRepository();
+            IdiomActions idiomActions = new IdiomActions(idiomsRepository, new IdiomSorter());
+            QuizActions quizActions = new QuizActions(quizzesRepository, idiomsRepository, new QuizSorter());
 
             while (true)
             {
