@@ -11,14 +11,20 @@ using Microsoft.AspNetCore.Mvc;
 using QuizinatorCore.Services;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using QuizinatorCore.Entities.Idioms;
+using Microsoft.Extensions.Logging;
 
 namespace QuizinatorUI.Controllers
 {
-    public class IdiomsController : ControllerWithAsync<Idiom>
+    [Route("[controller]/[action]")]
+    public class IdiomsController : ControllerWithAsync<IdiomsController, Idiom>
     {
-        public IdiomsController(IRepository<Idiom> repository, FileConverter fileConverter, ISorter<Idiom> idiomSorter)
-            : base(repository, fileConverter, idiomSorter)
+        public IdiomsController(ILogger<IdiomsController> logger,
+                                IRepository<Idiom> repository,
+                                FileConverter fileConverter,
+                                ISorter<Idiom> idiomSorter)
+            : base(logger, repository, fileConverter, idiomSorter)
         {
+            logger.LogDebug(1, "NLog injected into IdiomsController");
         }
 
         protected override Guid GetId(Idiom x)

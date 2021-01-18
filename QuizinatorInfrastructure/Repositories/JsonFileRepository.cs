@@ -14,9 +14,9 @@ namespace QuizinatorInfrastructure.Repositories
     public abstract class JsonFileRepository<T> : IRepository<T>
     {
         protected string JsonFileName;
-
         protected abstract Guid GetId(T item);
         protected abstract T AddIdToNewItem(T newItem);
+
         public abstract Task AddRatingAsync(Guid itemId, int rating);
 
         public async Task<IEnumerable<T>> GetAllAsync()

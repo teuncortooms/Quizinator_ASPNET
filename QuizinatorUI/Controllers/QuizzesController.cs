@@ -12,21 +12,23 @@ using QuizinatorUI.ViewModels;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using AutoMapper;
 using QuizinatorCore.Entities.Idioms;
+using Microsoft.Extensions.Logging;
 
 namespace QuizinatorUI.Controllers
 {
-    public class QuizzesController : ControllerWithAsync<Quiz>
+    [Route("[controller]/[action]")]
+    public class QuizzesController : ControllerWithAsync<QuizzesController, Quiz>
     {
         private readonly IRepository<Idiom> idiomsRepository;
 
-        public QuizzesController(
-            IRepository<Quiz> quizzesRepository,
-            FileConverter fileConverter,
-            ISorter<Quiz> idiomSorter,
-            IRepository<Idiom> idiomsRepository
-            )
-            : base(quizzesRepository, fileConverter, idiomSorter)
+        public QuizzesController(ILogger<QuizzesController> logger,
+                                 IRepository<Quiz> quizzesRepository,
+                                 FileConverter fileConverter,
+                                 ISorter<Quiz> idiomSorter,
+                                 IRepository<Idiom> idiomsRepository)
+            : base(logger, quizzesRepository, fileConverter, idiomSorter)
         {
+            logger.LogDebug(1, "NLog injected into QuizzesController"); 
             this.idiomsRepository = idiomsRepository;
         }
 
@@ -47,7 +49,7 @@ namespace QuizinatorUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<ActionResult> Create(Quiz model)
+        public override async Task<ActionResult> Create([FromBody]Quiz model)
         {
             if (ModelState.IsValid)
             {

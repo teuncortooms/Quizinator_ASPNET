@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using QuizinatorInfrastructure.Repositories;
+using Microsoft.OpenApi.Models;
 
 namespace QuizinatorUI
 {
@@ -29,6 +30,10 @@ namespace QuizinatorUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
             services.AddTransient<IRepository<Idiom>, IdiomsRepository>(); // TODO: dependency on DAL ok?!
             services.AddTransient<IRepository<Quiz>, QuizzesRepository>();
             services.AddTransient<FileConverter>();
@@ -55,6 +60,12 @@ namespace QuizinatorUI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
